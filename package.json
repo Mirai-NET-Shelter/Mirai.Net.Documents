@@ -1,0 +1,16 @@
+{
+  "name": "Mirai.Net.Documents",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/AHpxChina/Mirai.Net.Documents.git",
+  "author": "AHpx <agpx@yandex.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.8.2"
+  },
+  "scripts": {
+    "dev": "vuepress dev docs --temp .temp",
+    "build": "vuepress build docs",
+    "deploy": "bash deploy.sh"
+  }
+}
