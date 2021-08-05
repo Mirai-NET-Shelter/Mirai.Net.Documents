@@ -24,6 +24,23 @@ module.exports = {
         label: '2.x',
         ariaLabel: '2.x',
         nav: [{ text: '指北', link: '/guide/' }],
+        nav: [
+          {
+            text: '事件',
+            link:
+              'https://docs.mirai.mamoe.net/mirai-api-http/api/EventType.html',
+          },
+        ],
+        nav: [
+          {
+            text: '消息',
+            link:
+              'https://docs.mirai.mamoe.net/mirai-api-http/api/MessageType.html',
+          },
+        ],
+        nav: [
+          { text: 'Github', link: 'https://github.com/AHpxChina/Mirai.Net' },
+        ],
       },
       '/1.x/': {
         selectText: '1.x',
