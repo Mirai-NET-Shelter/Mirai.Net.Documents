@@ -7,7 +7,7 @@ module.exports = {
     // 作为特例，默认语言可以使用 '/' 作为其路径。
     '/': {
       lang: 'en', // 将会被设置为 <html> 的 lang 属性
-      title: 'Mirai.Net 2.2.0-Pre1',
+      title: 'Mirai.Net 2.3.x',
       description: '.Net实现的Mirai社区SDK',
     },
     '/1.x/': {
