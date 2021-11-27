@@ -12,7 +12,7 @@ features:
     details: 基于.Net Standard 2.0开发。
   - title: 易用
     details: 如果看了文档还不会用，你要我开宝宝巴士吗？
-footer: AGPL-3.0 Licensed | Copyright © 2021 AHpxChina
+footer: AGPL-3.0 Licensed | Copyright © 2021 SinoAHpx
 ---
 
 ## 快速上手
@@ -20,8 +20,8 @@ footer: AGPL-3.0 Licensed | Copyright © 2021 AHpxChina
 ### 安装
 
 - 使用 Nuget 安装(推荐)
-  - Nuget 包管理器: `Install-Package Mirai.Net -Version 2.1.0`
-  - .Net CLI: `dotnet add package Mirai.Net --version 2.1.0`
+  - Nuget 包管理器: `Install-Package Mirai.Net -Version 2.3.4`
+  - .Net CLI: `dotnet add package Mirai.Net --version 2.3.4`
   - **或者在 IDE 的可视化界面搜索`Mirai.Net`安装。**
 - 自己克隆这个仓库的默认分支，然后自己编译，然后自己添加 dll 引用。
 
@@ -72,8 +72,7 @@ await bot.Launch();
 
 ```cs
 bot.EventReceived
-    .Where(x => x.Type == Events.NewFriendRequested)
-    .Cast<NewFriendRequestedEvent>()
+    .OfType<NewFriendRequestedEvent>()
     .Subscribe(x =>
     {
         //do things
@@ -82,15 +81,7 @@ bot.EventReceived
 
 ### Hello, World
 
-`Mirai.Net`通过一系列的`xxManager`来进行主动操作，其中，消息相关的管理器为`MessageManager`。尽管这些管理器都可以直接实例化，但是不推荐这么做(主要是这样做不是很酷)。
-
-#### 获取管理器
-
-`Mirai.Net`将获取管理器的方法定义为`MiraiBot`类的拓展方法:
-
-```cs
-var manager = bot.GetManager<MessageManager>();
-```
+`Mirai.Net`通过一系列的`xxManager`来进行主动操作，其中，消息相关的管理器为`MessageManager`。
 
 #### 发送消息
 
@@ -101,11 +92,11 @@ var manager = bot.GetManager<MessageManager>();
 (因为第二个参数接收的是一个`params MessageBase[]`类型的参数，所以需要调用`Append`拓展方法把字符串转换成消息链。)
 
 ```cs
-await manager.SendGroupMessage("xx", "Hello, World".Append());
+await MessageManager.SendGroupMessage("xx", "Hello, World".Append());
 ```
 
 或者:
 
 ```cs
-await manager.SendGroupMessage("xx", "Hello, ".Append(new AtMessage("xx")).Append(" !"));
+await MessageManager.SendGroupMessage("xx", "Hello, ".Append(new AtMessage("xx")).Append(" !"));
 ```
