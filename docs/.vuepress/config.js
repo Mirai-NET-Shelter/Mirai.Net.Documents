@@ -28,12 +28,12 @@ module.exports = {
           {
             text: '事件',
             link:
-              'https://docs.mirai.mamoe.net/mirai-api-http/api/EventType.html',
+              '/events/',
           },
           {
             text: '消息',
             link:
-              'https://docs.mirai.mamoe.net/mirai-api-http/api/MessageType.html',
+              '/messages/',
           },
           { text: 'Github', link: 'https://github.com/AHpxChina/Mirai.Net' },
         ],
