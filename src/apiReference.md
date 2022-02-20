@@ -2,7 +2,10 @@
 
 此文档由[AHpx.RG](https://github.com/SinoAHpx/AHpx.RG)自动生成。
 
+如果你觉得效果不尽如人意，欢迎到[AHpx.RG](https://github.com/SinoAHpx/AHpx.RG/issues)提交issue。
+
 ### [MessageScaffold](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Utils/Scaffolds/MessageScaffold.cs)
+
 消息相关的脚手架
 #### Methods
 - ```Append(MessageBase[])```
