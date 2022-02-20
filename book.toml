@@ -3,4 +3,4 @@ authors = ["AHpx"]
 language = "zh"
 multilingual = false
 src = "src"
-title = "Mirai.NET Document"
+title = "Mirai.NET Documentation"

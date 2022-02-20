@@ -1,0 +1,1322 @@
+# API
+
+此文档由[AHpx.RG](https://github.com/SinoAHpx/AHpx.RG)自动生成。
+
+### [MessageScaffold](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Utils/Scaffolds/MessageScaffold.cs)
+消息相关的脚手架
+#### Methods
+- ```Append(MessageBase[])```
+	- ```origin(String)```
+	- ```append(MessageBase[])```
+- ```Append(MessageBase[])```
+	- ```origin(String)```
+	- ```append(IEnumerable`1)```
+- ```Append(MessageBase[])```
+	- ```origin(String)```
+	- ```append(String)```
+- ```Append(MessageBase[])```
+	- ```messageBase(MessageBase)```
+	- ```append(MessageBase[])```
+- ```Append(MessageBase[])```
+	- ```messageBase(MessageBase)```
+	- ```append(IEnumerable`1)```
+- ```Append(MessageBase[])```
+	- ```messageBase(MessageBase)```
+	- ```append(String)```
+- ```Append(MessageBase[])```
+	- ```bases(IEnumerable`1)```
+	- ```append(MessageBase[])```
+- ```Append(MessageBase[])```
+	- ```bases(IEnumerable`1)```
+	- ```append(String)```
+- ```Append(MessageBase[])```
+	- ```bases(IEnumerable`1)```
+	- ```append(IEnumerable`1)```
+- ```Contains(Boolean)```
+	- ```bases(IEnumerable`1)```
+	- ```message(String)```
+- ```Contains(Boolean)```
+	- ```bases(IEnumerable`1)```
+	- ```message(String)```
+	- ```messageBase(MessageBase&)```
+- ```Contains(Boolean)```
+	- ```bases(IEnumerable`1)```
+	- ```message(String)```
+	- ```origin(IEnumerable`1&)```
+- ```GetPlainMessage(String)```
+	- ```messageChain(IEnumerable`1)```
+- ```GetSeparatedPlainMessage(IEnumerable`1)```
+	- ```messageChain(IEnumerable`1)```
+### [MiraiScaffold](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Utils/Scaffolds/MiraiScaffold.cs)
+#### Methods
+- ```GetPluginVersionAsync(Task`1)```: 拓展方法，获取mirai-api-http插件的版本，此方法不需要经过任何认证
+	- ```bot(MiraiBot)```
+- ```IsFriend(Boolean)```: 判断某QQ号是否为bot账号的好友
+	- ```bot(MiraiBot)```
+	- ```qq(String)```
+- ```IsFriend(Boolean)```: 判断某群成员是否是bot账号的好友
+	- ```bot(MiraiBot)```
+	- ```member(Member)```
+- ```IsFriend(Boolean)```: 判断某人是否是bot账号的好友
+	- ```bot(MiraiBot)```
+	- ```friend(Friend)```
+- ```Concretize(T)```: 把MessageReceiverBase转换为具体的MessageReceiver
+	- ```base(MessageReceiverBase)```
+- ```SendMessageAsync(Task`1)```: 发送群消息
+	- ```receiver(GroupMessageReceiver)```
+	- ```chain(MessageBase[])```
+- ```SendMessageAsync(Task`1)```: 发送好友消息
+	- ```receiver(FriendMessageReceiver)```
+	- ```chain(MessageBase[])```
+- ```SendMessageAsync(Task`1)```: 发送临时消息
+	- ```receiver(TempMessageReceiver)```
+	- ```chain(MessageBase[])```
+- ```SendMessageAsync(Task`1)```: 发送群消息
+	- ```receiver(GroupMessageReceiver)```
+	- ```message(String)```
+- ```SendMessageAsync(Task`1)```: 发送好友消息
+	- ```receiver(FriendMessageReceiver)```
+	- ```message(String)```
+- ```SendMessageAsync(Task`1)```: 发送临时消息
+	- ```receiver(TempMessageReceiver)```
+	- ```message(String)```
+- ```RecallAsync(Task)```: 撤回收到的消息
+	- ```receiver(MessageReceiverBase)```
+- ```QuoteMessageAsync(Task`1)```
+	- ```receiver(FriendMessageReceiver)```
+	- ```chain(MessageBase[])```
+- ```QuoteMessageAsync(Task`1)```
+	- ```receiver(GroupMessageReceiver)```
+	- ```chain(MessageBase[])```
+- ```QuoteMessageAsync(Task`1)```
+	- ```receiver(TempMessageReceiver)```
+	- ```chain(MessageBase[])```
+- ```QuoteMessageAsync(Task`1)```
+	- ```receiver(FriendMessageReceiver)```
+	- ```message(String)```
+- ```QuoteMessageAsync(Task`1)```
+	- ```receiver(GroupMessageReceiver)```
+	- ```message(String)```
+- ```QuoteMessageAsync(Task`1)```
+	- ```receiver(TempMessageReceiver)```
+	- ```message(String)```
+- ```Handle(Task)```: 处理好友请求
+	- ```event(NewFriendRequestedEvent)```
+	- ```handler(NewFriendRequestHandlers)```
+	- ```message(String)```
+- ```Handle(Task)```: 处理新成员加群请求
+	- ```requestedEvent(NewMemberRequestedEvent)```
+	- ```handler(NewMemberRequestHandlers)```
+	- ```message(String)```
+- ```Handle(Task)```: 处理bot被邀请进群请求
+	- ```requestedEvent(NewInvitationRequestedEvent)```
+	- ```handler(NewInvitationRequestHandlers)```
+	- ```message(String)```
+### [ModuleScaffold](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Utils/Scaffolds/ModuleScaffold.cs)
+#### Methods
+- ```GetModules(IEnumerable`1)```: 获取泛型参数同一个命名空间下的所有模块
+	- ```module(T)```
+- ```SubscribeModule```: 传播订阅到模块
+	- ```modules(IEnumerable`1)```
+	- ```base(MessageReceiverBase)```
+### [EnumeratedTypeUtils](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Utils/Internal/EnumeratedTypeUtils.cs)
+### [ExceptionUtils](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Utils/Internal/ExceptionUtils.cs)
+### [ReflectionUtils](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Utils/Internal/ReflectionUtils.cs)
+#### Methods
+- ```GetDefaultInstances(IEnumerable`1)```: 获取某个命名空间下所有类的默认实例
+	- ```namespace(String)```
+### [MiraiBot](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Sessions/MiraiBot.cs)
+mirai-api-http机器人描述
+#### Constructors
+- Constructor
+#### Propertys
+- ```Instance(MiraiBot)```
+	- 最后一个启动的MiraiBot实例
+- ```Address(String)```
+	- mirai-api-http本地服务器地址，比如：localhost:114514
+- ```QQ(String)```
+	- 建立连接的QQ账号
+- ```VerifyKey(String)```
+	- Mirai.Net总是需要一个VerifyKey
+- ```Groups(Lazy`1)```
+- ```Friends(Lazy`1)```
+- ```EventReceived(IObservable`1)```
+- ```MessageReceived(IObservable`1)```
+- ```UnknownMessageReceived(IObservable`1)```
+- ```DisconnectionHappened(IObservable`1)```
+#### Methods
+- ```Dispose```
+- ```LaunchAsync(Task)```
+### [AccountManager](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Sessions/Http/Managers/AccountManager.cs)
+账号管理器
+#### Methods
+- ```GetFriendsAsync(Task`1)```: 获取bot账号的好友列表
+- ```GetGroupsAsync(Task`1)```: 获取bot账号的QQ群列表
+- ```GetGroupMembersAsync(Task`1)```: 获取某群的全部群成员
+	- ```target(String)```
+- ```GetGroupMembersAsync(Task`1)```: 获取某群的全部群成员
+	- ```target(Group)```
+- ```DeleteFriendAsync(Task)```: 删除好友
+	- ```target(String)```
+- ```DeleteFriendAsync(Task)```: 删除好友
+	- ```friend(Friend)```
+- ```GetBotProfileAsync(Task`1)```: 获取bot资料
+- ```GetFriendProfileAsync(Task`1)```: 获取好友资料
+	- ```target(String)```
+- ```GetFriendProfileAsync(Task`1)```: 获取好友资料
+	- ```target(Friend)```
+- ```GetMemberProfileAsync(Task`1)```: 获取群员资料
+	- ```id(String)```
+	- ```target(String)```: 群号
+- ```GetMemberProfileAsync(Task`1)```: 获取群员资料
+	- ```member(Member)```
+### [FileManager](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Sessions/Http/Managers/FileManager.cs)
+#### Methods
+- ```GetFilesAsync(Task`1)```: 获取群文件列表
+	- ```target(String)```
+	- ```withDownloadInfo(Nullable`1)```: 附带下载信息，默认不附带
+	- ```folderId(String)```: 文件夹id，空字符串即为根目录
+- ```GetFileAsync(Task`1)```: 获取群文件信息
+	- ```target(String)```: 群号
+	- ```fileId(String)```: 文件id
+	- ```withDownloadInfo(Nullable`1)```
+- ```CreateFolderAsync(Task`1)```: 创建群文件夹
+	- ```target(String)```
+	- ```name(String)```
+- ```DeleteFileAsync(Task)```: 删除群文件
+	- ```target(String)```
+	- ```fileId(String)```
+- ```MoveFileAsync(Task)```: 移动群文件
+	- ```target(String)```
+	- ```fileId(String)```: 移动文件id
+	- ```destination(String)```: 移动目标文件夹id
+- ```RenameFileAsync(Task)```: 重命名群文件
+	- ```target(String)```
+	- ```fileId(String)```: 重命名文件id
+	- ```newName(String)```: 新文件名
+- ```UploadFileAsync(Task`1)```: 上传群文件，参考https://github.com/project-mirai/mirai-api-http/issues/456
+	- ```target(String)```: 上传到哪个群
+	- ```filePath(String)```: 文件的路径
+	- ```uploadPath(String)```: 上传路径，例如/xx（不可以指定文件名，默认为上传到根目录）
+- ```UploadImageAsync(Task`1)```: 上传图片
+	- ```imagePath(String)```: 图片路径
+	- ```imageUploadTargets(ImageUploadTargets)```: 上传类型
+- ```UploadVoiceAsync(Task`1)```: 上传语音
+	- ```voicePath(String)```: 语言路径
+### [GroupManager](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Sessions/Http/Managers/GroupManager.cs)
+#### Methods
+- ```MuteAsync(Task)```: 禁言某群员
+	- ```target(String)```
+	- ```group(String)```
+	- ```time(Int32)```
+- ```MuteAsync(Task)```
+	- ```target(String)```
+	- ```group(String)```
+	- ```time(TimeSpan)```
+- ```MuteAsync(Task)```: 禁言某群员
+	- ```member(Member)```
+	- ```time(Int32)```
+- ```MuteAsync(Task)```
+	- ```member(Member)```
+	- ```time(TimeSpan)```
+- ```UnMuteAsync(Task)```: 取消禁言
+	- ```target(String)```
+	- ```group(String)```
+- ```UnMuteAsync(Task)```: 取消禁言
+	- ```member(Member)```
+- ```KickAsync(Task)```: 踢出某群员
+	- ```target(String)```
+	- ```group(String)```
+	- ```message(String)```
+- ```KickAsync(Task)```: 踢出某群员
+	- ```member(Member)```
+	- ```message(String)```
+- ```LeaveAsync(Task)```: bot退出某群
+	- ```target(String)```
+- ```LeaveAsync(Task)```: bot退出某群
+	- ```group(Group)```
+- ```MuteAllAsync(Task)```: 全体禁言
+	- ```target(String)```
+	- ```mute(Boolean)```: 是否禁言
+- ```MuteAllAsync(Task)```: 全体禁言
+	- ```group(Group)```
+	- ```mute(Boolean)```: 是否禁言
+- ```SetEssenceMessageAsync(Task)```: 设置精华消息
+	- ```messageId(String)```: 消息id
+- ```SetEssenceMessageAsync(Task)```: 设置精华消息
+	- ```receiver(MessageReceiverBase)```
+- ```GetGroupSettingAsync(Task`1)```: 获取群设置
+	- ```target(String)```
+- ```GetGroupSettingAsync(Task`1)```: 获取群设置
+	- ```group(Group)```
+- ```SetGroupSettingAsync(Task)```: 修改群设置
+	- ```target(String)```
+	- ```setting(GroupSetting)```
+- ```SetGroupSettingAsync(Task)```: 修改群设置
+	- ```group(Group)```
+	- ```setting(GroupSetting)```
+- ```GetMemberAsync(Task`1)```: 获取群员
+	- ```memberQQ(String)```
+	- ```group(String)```
+- ```SetMemberInfoAsync(Task`1)```: 修改群员设置,需要相关的权限
+	- ```memberQQ(String)```
+	- ```group(String)```
+	- ```card(String)```: 群名片, 需要管理员权限
+	- ```title(String)```: 群头衔, 需要群主权限
+### [MessageManager](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Sessions/Http/Managers/MessageManager.cs)
+#### Methods
+- ```GetMessageReceiverByIdAsync(Task`1)```: 由消息id获取一条消息
+	- ```messageId(String)```
+- ```SendFriendMessageAsync(Task`1)```: 发送好友消息
+	- ```target(String)```
+	- ```chain(MessageBase[])```
+- ```SendFriendMessageAsync(Task`1)```: 发送好友消息
+	- ```friend(Friend)```
+	- ```chain(MessageBase[])```
+- ```SendGroupMessageAsync(Task`1)```: 发送群消息
+	- ```target(String)```
+	- ```chain(MessageBase[])```
+- ```SendGroupMessageAsync(Task`1)```: 发送群消息
+	- ```group(Group)```
+	- ```chain(MessageBase[])```
+- ```SendTempMessageAsync(Task`1)```: 发送群临时消息
+	- ```qq(String)```
+	- ```group(String)```
+	- ```chain(MessageBase[])```
+- ```SendTempMessageAsync(Task`1)```: 发送群临时消息
+	- ```member(Member)```
+	- ```chain(MessageBase[])```
+- ```SendNudgeAsync(Task)```: 发送头像戳一戳
+	- ```target(String)```: 戳一戳的目标
+	- ```subject(String)```: 在什么地方戳
+	- ```kind(MessageReceivers)```: 只可以选Friend, Strange和Group
+- ```RecallAsync(Task)```: 撤回消息
+	- ```messageId(String)```: 消息id
+- ```QuoteFriendMessageAsync(Task`1)```: 回复好友消息
+	- ```target(String)```
+	- ```messageId(String)```
+	- ```chain(MessageBase[])```
+- ```QuoteFriendMessageAsync(Task`1)```: 回复好友消息
+	- ```friend(Friend)```
+	- ```messageId(String)```
+	- ```chain(MessageBase[])```
+- ```QuoteGroupMessageAsync(Task`1)```: 回复群消息
+	- ```target(String)```
+	- ```messageId(String)```
+	- ```chain(MessageBase[])```
+- ```QuoteGroupMessageAsync(Task`1)```: 回复群消息
+	- ```group(Group)```
+	- ```messageId(String)```
+	- ```chain(MessageBase[])```
+- ```QuoteTempMessageAsync(Task`1)```: 回复临时消息
+	- ```memberId(String)```
+	- ```group(String)```
+	- ```messageId(String)```
+	- ```chain(MessageBase[])```
+- ```QuoteTempMessageAsync(Task`1)```: 回复临时消息
+	- ```member(Member)```
+	- ```messageId(String)```
+	- ```chain(MessageBase[])```
+- ```SendFriendMessageAsync(Task`1)```: 发送好友消息
+	- ```target(String)```
+	- ```message(String)```
+- ```SendFriendMessageAsync(Task`1)```: 发送好友消息
+	- ```target(Friend)```
+	- ```message(String)```
+- ```SendTempMessageAsync(Task`1)```: 发送临时消息
+	- ```target(String)```
+	- ```group(String)```
+	- ```message(String)```
+- ```SendTempMessageAsync(Task`1)```: 发送临时消息
+	- ```member(Member)```
+	- ```message(String)```
+- ```SendGroupMessageAsync(Task`1)```: 发送群消息
+	- ```target(String)```
+	- ```message(String)```
+- ```SendGroupMessageAsync(Task`1)```: 发送群消息
+	- ```group(Group)```
+	- ```message(String)```
+- ```QuoteFriendMessageAsync(Task`1)```: 引用好友消息
+	- ```target(String)```
+	- ```messageId(String)```
+	- ```message(String)```
+- ```QuoteFriendMessageAsync(Task`1)```: 引用好友消息
+	- ```target(Friend)```
+	- ```messageId(String)```
+	- ```message(String)```
+- ```QuoteGroupMessageAsync(Task`1)```: 引用群消息
+	- ```target(String)```
+	- ```messageId(String)```
+	- ```message(String)```
+- ```QuoteGroupMessageAsync(Task`1)```: 引用群消息
+	- ```target(Group)```
+	- ```messageId(String)```
+	- ```message(String)```
+- ```QuoteTempMessageAsync(Task`1)```: 引用临时消息
+	- ```memberId(String)```
+	- ```group(String)```
+	- ```messageId(String)```
+	- ```message(String)```
+- ```QuoteTempMessageAsync(Task`1)```: 引用临时消息
+	- ```member(Member)```
+	- ```messageId(String)```
+	- ```message(String)```
+### [RequestManager](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Sessions/Http/Managers/RequestManager.cs)
+#### Methods
+- ```HandleNewFriendRequestedAsync(Task)```: 处理好友申请
+	- ```requestedEvent(NewFriendRequestedEvent)```
+	- ```handler(NewFriendRequestHandlers)```
+	- ```message(String)```
+- ```HandleNewMemberRequestedAsync(Task)```: 处理新成员入群申请,需要管理员权限
+	- ```requestedEvent(NewMemberRequestedEvent)```
+	- ```handler(NewMemberRequestHandlers)```
+	- ```message(String)```
+- ```HandleNewInvitationRequestedAsync(Task)```: 处理bot被邀请进群申请
+	- ```requestedEvent(NewInvitationRequestedEvent)```
+	- ```handler(NewInvitationRequestHandlers)```
+	- ```message(String)```
+### [ICommandModule](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Modules/ICommandModule.cs)
+#### Propertys
+- ```IsEnable(Nullable`1)```
+#### Methods
+- ```Execute```
+	- ```receiver(MessageReceiverBase)```
+	- ```executeMessage(MessageBase)```
+### [IModule](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Modules/IModule.cs)
+#### Propertys
+- ```IsEnable(Nullable`1)```
+#### Methods
+- ```Execute```
+	- ```base(MessageReceiverBase)```
+### [File](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Shared/File.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```Name(String)```
+- ```Id(String)```
+- ```Path(String)```
+- ```Parent(File)```
+- ```IsFile(Boolean)```
+- ```IsDirectory(Boolean)```
+- ```Contact(FileUploader)```
+- ```DownloadInfo(FileDownloadInfo)```
+### [Friend](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Shared/Friend.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```Profile(Profile)```
+- ```Id(String)```
+	- 好友的QQ号
+- ```NickName(String)```
+	- 好友的昵称
+- ```Remark(String)```
+	- 你给好友的备注
+### [Genders](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Shared/Genders.cs)
+#### Fields
+- ```Male(Genders)```
+- ```Female(Genders)```
+- ```Unknown(Genders)```
+### [Group](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Shared/Group.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```Id(String)```
+	- 群号
+- ```Name(String)```
+	- 群名称
+- ```Permission(Permissions)```
+	- 权限类型
+### [GroupSetting](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Shared/GroupSetting.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```Name(String)```
+	- 群名称
+- ```Announcement(String)```
+	- 群公告
+- ```ConfessTalk(Boolean)```
+	- 坦白说
+- ```AllowMemberInvite(Boolean)```
+	- 成员邀请
+- ```AutoApprove(Boolean)```
+	- 自动通过入群申请
+- ```AnonymousChat(Boolean)```
+	- 匿名聊天
+### [ImageUploadTargets](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Shared/ImageUploadTargets.cs)
+#### Fields
+- ```Friend(ImageUploadTargets)```
+- ```Group(ImageUploadTargets)```
+- ```Temp(ImageUploadTargets)```
+### [Member](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Shared/Member.cs)
+群成员
+#### Constructors
+- Constructor
+#### Propertys
+- ```Profile(Profile)```
+- ```Id(String)```
+	- 群员的QQ号
+- ```Name(String)```
+	- 群员的群名片
+- ```Permission(Permissions)```
+	- 操作者在群中的权限
+- ```SpecialTitle(String)```
+	- 操作者的群头衔
+- ```JoinTime(String)```
+	- 加入时间戳
+- ```LastSpeakTime(String)```
+	- 最后发言时间戳
+- ```MuteTimeRemaining(String)```
+	- 禁言时间还剩余
+- ```Group(Group)```
+	- 产生此操作的群
+### [NewFriendRequestHandlers](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Shared/NewFriendRequestHandlers.cs)
+#### Fields
+- ```Approve(NewFriendRequestHandlers)```
+- ```Reject(NewFriendRequestHandlers)```
+- ```RejectAndBlock(NewFriendRequestHandlers)```
+### [NewInvitationRequestHandlers](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Shared/NewInvitationRequestHandlers.cs)
+#### Fields
+- ```Approve(NewInvitationRequestHandlers)```
+- ```Reject(NewInvitationRequestHandlers)```
+### [NewMemberRequestHandlers](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Shared/NewMemberRequestHandlers.cs)
+#### Fields
+- ```Approve(NewMemberRequestHandlers)```
+- ```Reject(NewMemberRequestHandlers)```
+- ```Dismiss(NewMemberRequestHandlers)```
+- ```RejectAndBlock(NewMemberRequestHandlers)```
+- ```DismissAndBlock(NewMemberRequestHandlers)```
+### [OtherClient](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Shared/OtherClient.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```Id(String)```
+- ```Platform(String)```
+### [Permissions](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Shared/Permissions.cs)
+#### Fields
+- ```Owner(Permissions)```
+- ```Administrator(Permissions)```
+- ```Member(Permissions)```
+### [Profile](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Shared/Profile.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```NickName(String)```
+- ```Email(String)```
+- ```Age(String)```
+- ```Level(String)```
+- ```Signature(String)```
+	- 签名
+- ```Gender(Genders)```
+### [CommandTriggerAttribute](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Modules/CommandTriggerAttribute.cs)
+- Example: /hello --arg1 value1 value2 --arg2 --arg3
+                    /: prefixhello : name-- : args separator
+#### Constructors
+- Constructor
+	- ```name(String)```
+	- ```prefix(String)```
+	- ```argsSeparator(String)```
+	- ```equalName(Boolean)```
+#### Propertys
+- ```Prefix(String)```
+- ```Name(String)```
+- ```ArgsSeparator(String)```
+- ```EqualName(Boolean)```
+	- 命令中是否只能包含Name
+- ```TypeId(Object)```
+### [MessageBase](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/MessageBase.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```Type(Messages)```
+### [MessageReceiverBase](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/MessageReceiverBase.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```Type(MessageReceivers)```
+- ```MessageChain(IEnumerable`1)```
+### [MessageReceivers](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/MessageReceivers.cs)
+#### Fields
+- ```Friend(MessageReceivers)```
+- ```Group(MessageReceivers)```
+- ```Temp(MessageReceivers)```
+- ```Stranger(MessageReceivers)```
+- ```OtherClient(MessageReceivers)```
+### [Messages](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/Messages.cs)
+#### Fields
+- ```Source(Messages)```
+- ```Quote(Messages)```
+- ```At(Messages)```
+- ```AtAll(Messages)```
+- ```Face(Messages)```
+- ```Plain(Messages)```
+- ```Image(Messages)```
+- ```FlashImage(Messages)```
+- ```Voice(Messages)```
+- ```Xml(Messages)```
+- ```Json(Messages)```
+- ```App(Messages)```
+- ```Poke(Messages)```
+- ```Dice(Messages)```
+- ```MusicShare(Messages)```
+- ```Forward(Messages)```
+- ```File(Messages)```
+### [FriendMessageReceiver](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/Receivers/FriendMessageReceiver.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```Type(MessageReceivers)```
+- ```Sender(Friend)```
+- ```Name(String)```
+	- 好友昵称
+- ```Remark(String)```
+	- 好友备注
+- ```Id(String)```
+	- 好友QQ号
+- ```MessageChain(IEnumerable`1)```
+### [GroupMessageReceiver](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/Receivers/GroupMessageReceiver.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```Sender(Member)```
+- ```Id(String)```
+	- 群号
+- ```Name(String)```
+	- 群名称
+- ```Permission(Permissions)```
+	- bot在群内的权限
+- ```Type(MessageReceivers)```
+- ```MessageChain(IEnumerable`1)```
+### [OtherClientMessageReceiver](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/Receivers/OtherClientMessageReceiver.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```Type(MessageReceivers)```
+- ```Sender(OtherClient)```
+- ```MessageChain(IEnumerable`1)```
+### [StrangerMessageReceiver](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/Receivers/StrangerMessageReceiver.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```Type(MessageReceivers)```
+- ```Sender(Friend)```
+- ```Name(String)```
+	- 昵称
+- ```Remark(String)```
+	- 备注
+- ```Id(String)```
+	- QQ号
+- ```MessageChain(IEnumerable`1)```
+### [TempMessageReceiver](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/Receivers/TempMessageReceiver.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```Type(MessageReceivers)```
+- ```Sender(Member)```
+- ```Id(String)```
+	- 群号
+- ```Name(String)```
+	- 群名称
+- ```Permission(Permissions)```
+	- bot在群内的权限
+- ```MessageChain(IEnumerable`1)```
+### [AppMessage](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/Concretes/AppMessage.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```Type(Messages)```
+- ```App(String)```
+### [AtAllMessage](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/Concretes/AtAllMessage.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```Type(Messages)```
+### [AtMessage](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/Concretes/AtMessage.cs)
+#### Constructors
+- Constructor
+	- ```target(String)```
+- Constructor
+#### Propertys
+- ```Target(String)```
+	- 群员QQ号
+- ```Display(String)```
+	- At时显示的文字，发送消息时无效，自动使用群名片，默认为空
+- ```Type(Messages)```
+### [DiceMessage](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/Concretes/DiceMessage.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```Type(Messages)```
+- ```Value(String)```
+	- 点数
+### [FaceMessage](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/Concretes/FaceMessage.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```FaceId(String)```
+	- QQ表情编号，可选，优先高于name
+- ```Name(String)```
+	- QQ表情拼音，可选
+- ```Type(Messages)```
+### [FileMessage](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/Concretes/FileMessage.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```Type(Messages)```
+- ```FileId(String)```
+	- 文件识别id
+- ```Name(String)```
+	- 文件名
+- ```Size(Int64)```
+	- 文件大小
+### [FlashImageMessage](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/Concretes/FlashImageMessage.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```Type(Messages)```
+- ```ImageId(String)```
+	- 图片的imageId，群图片与好友图片格式不同。不为空时将忽略url属性
+- ```Url(String)```
+	- 图片的URL，发送时可作网络图片的链接；接收时为腾讯图片服务器的链接，可用于图片下载
+- ```Path(String)```
+	- 图片的路径，发送本地图片，相对路径于plugins/MiraiAPIHTTP/images
+- ```Base64(String)```
+	- 图片的 Base64 编码
+### [ForwardMessage](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/Concretes/ForwardMessage.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```Type(Messages)```
+- ```NodeList(IEnumerable`1)```
+	- 消息节点
+### [ImageMessage](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/Concretes/ImageMessage.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```Type(Messages)```
+- ```ImageId(String)```
+	- 图片的imageId，群图片与好友图片格式不同。不为空时将忽略url属性
+- ```Url(String)```
+	- 图片的URL，发送时可作网络图片的链接；接收时为腾讯图片服务器的链接，可用于图片下载
+- ```Path(String)```
+	- 图片的路径，发送本地图片，相对路径于plugins/MiraiAPIHTTP/images
+- ```Base64(String)```
+	- 图片的 Base64 编码
+### [JsonMessage](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/Concretes/JsonMessage.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```Json(String)```
+- ```Type(Messages)```
+### [MusicShareMessage](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/Concretes/MusicShareMessage.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```Type(Messages)```
+- ```Kind(String)```
+- ```Title(String)```
+- ```Summary(String)```
+- ```JumpUrl(String)```
+- ```PictureUrl(String)```
+- ```MusicUrl(String)```
+- ```Brief(String)```
+### [PlainMessage](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/Concretes/PlainMessage.cs)
+#### Constructors
+- Constructor
+	- ```text(String)```
+- Constructor
+#### Propertys
+- ```Text(String)```
+- ```Type(Messages)```
+### [PokeMessage](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/Concretes/PokeMessage.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```Name(String)```
+	- "Poke": 戳一戳
+                "ShowLove": 比心
+                "Like": 点赞
+                "Heartbroken": 心碎
+                "SixSixSix": 666
+                "FangDaZhao": 放大招
+- ```Type(Messages)```
+### [QuoteMessage](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/Concretes/QuoteMessage.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```Type(Messages)```
+- ```MessageId(String)```
+	- 被引用回复的原消息的messageId
+- ```GroupId(String)```
+	- 被引用回复的原消息所接收的群号，当为好友消息时为0
+- ```SenderId(String)```
+	- 被引用回复的原消息的发送者的QQ号
+- ```TargetId(String)```
+	- 被引用回复的原消息的接收者者的QQ号（或群号）
+- ```Origin(IEnumerable`1)```
+	- 被引用回复的原消息的消息链对象
+### [SourceMessage](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/Concretes/SourceMessage.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```MessageId(String)```
+	- 消息id
+- ```Time(String)```
+	- 消息发送时间戳
+- ```Type(Messages)```
+### [VoiceMessage](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/Concretes/VoiceMessage.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```VoiceId(String)```
+	- 语音的voiceId，不为空时将忽略url属性
+- ```Url(String)```
+	- 语音的URL，发送时可作网络语音的链接；接收时为腾讯语音服务器的链接，可用于语音下载
+- ```Path(String)```
+	- 语音的路径，发送本地语音，相对路径于plugins/MiraiAPIHTTP/voices
+- ```Base64(String)```
+	- 语音的 Base64 编码
+- ```Type(Messages)```
+### [XmlMessage](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/Concretes/XmlMessage.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```Type(Messages)```
+- ```Xml(String)```
+### [InvalidAddressException](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Exceptions/InvalidAddressException.cs)
+地址错误异常
+#### Constructors
+- Constructor
+- Constructor
+	- ```message(String)```
+- Constructor
+	- ```message(String)```
+	- ```inner(Exception)```
+#### Propertys
+- ```TargetSite(MethodBase)```
+- ```Message(String)```
+- ```Data(IDictionary)```
+- ```InnerException(Exception)```
+- ```HelpLink(String)```
+- ```Source(String)```
+- ```HResult(Int32)```
+- ```StackTrace(String)```
+### [InvalidCommandEntityException](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Exceptions/InvalidCommandEntityException.cs)
+#### Constructors
+- Constructor
+- Constructor
+	- ```message(String)```
+- Constructor
+	- ```message(String)```
+	- ```inner(Exception)```
+#### Propertys
+- ```TargetSite(MethodBase)```
+- ```Message(String)```
+- ```Data(IDictionary)```
+- ```InnerException(Exception)```
+- ```HelpLink(String)```
+- ```Source(String)```
+- ```HResult(Int32)```
+- ```StackTrace(String)```
+### [InvalidCommandException](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Exceptions/InvalidCommandException.cs)
+#### Constructors
+- Constructor
+- Constructor
+	- ```message(String)```
+- Constructor
+	- ```message(String)```
+	- ```inner(Exception)```
+#### Propertys
+- ```TargetSite(MethodBase)```
+- ```Message(String)```
+- ```Data(IDictionary)```
+- ```InnerException(Exception)```
+- ```HelpLink(String)```
+- ```Source(String)```
+- ```HResult(Int32)```
+- ```StackTrace(String)```
+### [InvalidQQException](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Exceptions/InvalidQQException.cs)
+错误的QQ号
+#### Constructors
+- Constructor
+- Constructor
+	- ```message(String)```
+- Constructor
+	- ```message(String)```
+	- ```inner(Exception)```
+#### Propertys
+- ```TargetSite(MethodBase)```
+- ```Message(String)```
+- ```Data(IDictionary)```
+- ```InnerException(Exception)```
+- ```HelpLink(String)```
+- ```Source(String)```
+- ```HResult(Int32)```
+- ```StackTrace(String)```
+### [InvalidResponseException](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Exceptions/InvalidResponseException.cs)
+#### Constructors
+- Constructor
+- Constructor
+	- ```message(String)```
+- Constructor
+	- ```message(String)```
+	- ```inner(Exception)```
+#### Propertys
+- ```TargetSite(MethodBase)```
+- ```Message(String)```
+- ```Data(IDictionary)```
+- ```InnerException(Exception)```
+- ```HelpLink(String)```
+- ```Source(String)```
+- ```HResult(Int32)```
+- ```StackTrace(String)```
+### [EventBase](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/EventBase.cs)
+#### Propertys
+- ```Type(Events)```
+#### Methods
+- ```ToString(String)```
+### [Events](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Events.cs)
+#### Fields
+- ```Online(Events)```
+	- Bot登录成功
+- ```Offline(Events)```
+	- Bot主动离线
+- ```OfflineForce(Events)```
+	- Bot被挤下线
+- ```Dropped(Events)```
+	- Bot被服务器断开或因网络问题而掉线
+- ```Reconnected(Events)```
+	- Bot主动重新登录
+- ```FriendInputStatusChanged(Events)```
+	- 好友输入状态改变
+- ```FriendNickChanged(Events)```
+	- 好友昵称改变
+- ```PermissionChanged(Events)```
+	- Bot在群里的权限被改变. 操作人一定是群主
+- ```Muted(Events)```
+	- Bot被禁言
+- ```Unmuted(Events)```
+	- Bot被取消禁言
+- ```Joined(Events)```
+	- Bot加入了一个新群
+- ```Left(Events)```
+	- Bot主动退出一个群
+- ```Kicked(Events)```
+	- Bot被踢出一个群
+- ```GroupMessageRecalled(Events)```
+	- 群消息撤回
+- ```FriendRecalled(Events)```
+	- 好友消息撤回
+- ```GroupNameChanged(Events)```
+	- 某个群名改变
+- ```GroupEntranceAnnouncementChanged(Events)```
+	- 某群入群公告改变
+- ```GroupMutedAll(Events)```
+	- 全员禁言
+- ```GroupAllowedAnonymousChat(Events)```
+	- 匿名聊天
+- ```GroupAllowedConfessTalk(Events)```
+	- 坦白说
+- ```GroupAllowedMemberInvite(Events)```
+	- 允许群员邀请好友加群
+- ```MemberJoined(Events)```
+	- 新人入群的事件
+- ```MemberKicked(Events)```
+	- 成员被踢出群（该成员不是Bot）
+- ```MemberLeft(Events)```
+	- 成员主动离群（该成员不是Bot）
+- ```MemberCardChanged(Events)```
+	- 群名片改动
+- ```MemberTitleChanged(Events)```
+	- 群头衔改动（只有群主有操作限权）
+- ```MemberPermissionChanged(Events)```
+	- 成员权限改变的事件（该成员不是Bot）
+- ```MemberMuted(Events)```
+	- 群成员被禁言事件（该成员不是Bot）
+- ```MemberUnmuted(Events)```
+	- 群成员被取消禁言事件（该成员不是Bot）
+- ```MemberHonorChanged(Events)```
+	- 群员称号改变
+- ```NewFriendRequested(Events)```
+	- 添加好友申请
+- ```NewMemberRequested(Events)```
+	- 用户入群申请（Bot需要有管理员权限）
+- ```NewInvitationRequested(Events)```
+	- Bot被邀请入群申请
+- ```Nudged(Events)```
+	- 戳一戳事件
+- ```OtherClientOnline(Events)```
+- ```OtherClientOffline(Events)```
+- ```At(Events)```
+### [EventTargets](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/EventTargets.cs)
+#### Fields
+- ```Bot(EventTargets)```
+- ```Friend(EventTargets)```
+- ```Group(EventTargets)```
+- ```Request(EventTargets)```
+### [NewFriendRequestedEvent](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Request/NewFriendRequestedEvent.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```Type(Events)```
+- ```EventId(String)```
+- ```FromId(String)```
+- ```GroupId(String)```
+- ```Nick(String)```
+- ```Message(String)```
+### [NewInvitationRequestedEvent](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Request/NewInvitationRequestedEvent.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```Type(Events)```
+- ```EventId(String)```
+- ```FromId(String)```
+- ```GroupId(String)```
+- ```Nick(String)```
+- ```Message(String)```
+### [NewMemberRequestedEvent](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Request/NewMemberRequestedEvent.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```Type(Events)```
+- ```EventId(String)```
+- ```FromId(String)```
+- ```GroupId(String)```
+- ```Nick(String)```
+- ```Message(String)```
+### [RequestedEventBase](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Request/RequestedEventBase.cs)
+#### Propertys
+- ```EventId(String)```
+- ```FromId(String)```
+- ```GroupId(String)```
+- ```Nick(String)```
+- ```Message(String)```
+- ```Type(Events)```
+### [OtherClientOfflineEvent](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/OtherClient/OtherClientOfflineEvent.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```Type(Events)```
+- ```Client(OtherClient)```
+### [OtherClientOnlineEvent](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/OtherClient/OtherClientOnlineEvent.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```Type(Events)```
+- ```Client(OtherClient)```
+- ```Kind(String)```
+### [AtEvent](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Message/AtEvent.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```Type(Events)```
+- ```Receiver(GroupMessageReceiver)```
+### [NudgeEvent](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Message/NudgeEvent.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```FromId(String)```
+- ```Target(String)```
+- ```Action(String)```
+- ```Suffix(String)```
+- ```Subject(NudgeSubject)```
+- ```Type(Events)```
+### [GroupAllowedAnonymousChatEvent](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Group/GroupAllowedAnonymousChatEvent.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```Type(Events)```
+- ```Origin(Boolean)```
+	- 原来的
+- ```Current(Boolean)```
+	- 目前的
+- ```Group(Group)```
+	- 产生此事件的群
+- ```Operator(Member)```
+	- 操作者
+### [GroupAllowedConfessTalkChanged](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Group/GroupAllowedConfessTalkChanged.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```Type(Events)```
+- ```Origin(Boolean)```
+	- 原来的
+- ```Current(Boolean)```
+	- 目前的
+- ```Group(Group)```
+	- 产生此事件的群
+- ```Operator(Member)```
+	- 操作者
+### [GroupAllowedMemberInviteEvent](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Group/GroupAllowedMemberInviteEvent.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```Type(Events)```
+- ```Origin(Boolean)```
+	- 原来的
+- ```Current(Boolean)```
+	- 目前的
+- ```Group(Group)```
+	- 产生此事件的群
+- ```Operator(Member)```
+	- 操作者
+### [GroupEntranceAnnouncementChangedEvent](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Group/GroupEntranceAnnouncementChangedEvent.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```Type(Events)```
+- ```Origin(String)```
+	- 原来的
+- ```Current(String)```
+	- 目前的
+- ```Group(Group)```
+	- 产生此事件的群
+- ```Operator(Member)```
+	- 操作者
+### [GroupMemberSettingChangedEventBase`1](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Group/GroupMemberSettingChangedEventBase.cs)
+#### Propertys
+- ```Origin(T)```
+- ```Current(T)```
+- ```Group(Group)```
+	- 产生此事件的群
+- ```Member(Member)```
+	- 操作者
+- ```Type(Events)```
+### [GroupMessageRecalledEvent](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Group/GroupMessageRecalledEvent.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```Type(Events)```
+- ```AuthorId(String)```
+	- 原消息发送者的QQ号
+- ```MessageId(String)```
+	- 消息id
+- ```Time(String)```
+	- 撤回时间戳
+- ```Group(Group)```
+	- 产生此事件的群
+- ```Operator(Member)```
+	- 操作者
+### [GroupMutedAllEvent](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Group/GroupMutedAllEvent.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```Type(Events)```
+- ```Origin(Boolean)```
+	- 原来的
+- ```Current(Boolean)```
+	- 目前的
+- ```Group(Group)```
+	- 产生此事件的群
+- ```Operator(Member)```
+	- 操作者
+### [GroupNameChangedEvent](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Group/GroupNameChangedEvent.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```Type(Events)```
+- ```Origin(String)```
+	- 原来的
+- ```Current(String)```
+	- 目前的
+- ```Group(Group)```
+	- 产生此事件的群
+- ```Operator(Member)```
+	- 操作者
+### [GroupSettingChangedEventBase`1](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Group/GroupSettingChangedEventBase.cs)
+#### Propertys
+- ```Origin(T)```
+	- 原来的
+- ```Current(T)```
+	- 目前的
+- ```Group(Group)```
+	- 产生此事件的群
+- ```Operator(Member)```
+	- 操作者
+- ```Type(Events)```
+### [JoinedEvent](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Group/JoinedEvent.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```Type(Events)```
+- ```Group(Group)```
+	- 加入的新群信息
+### [KickedEvent](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Group/KickedEvent.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```Type(Events)```
+- ```Group(Group)```
+	- bot被踢的群信息
+### [LeftEvent](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Group/LeftEvent.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```Type(Events)```
+- ```Group(Group)```
+	- 退出的群信息
+### [MemberCardChangedEvent](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Group/MemberCardChangedEvent.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```Type(Events)```
+- ```Origin(String)```
+- ```Current(String)```
+- ```Group(Group)```
+	- 产生此事件的群
+- ```Member(Member)```
+	- 操作者
+### [MemberHonorChangedEvent](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Group/MemberHonorChangedEvent.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```Type(Events)```
+- ```Member(Member)```
+- ```Action(MemberHonorAction)```
+	- 获得还是失去称号
+- ```Honor(String)```
+	- 称号名称
+### [MemberJoinedEvent](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Group/MemberJoinedEvent.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```Type(Events)```
+- ```Member(Member)```
+### [MemberKickedEvent](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Group/MemberKickedEvent.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```Type(Events)```
+- ```Member(Member)```
+- ```Operator(Member)```
+### [MemberLeftEvent](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Group/MemberLeftEvent.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```Type(Events)```
+- ```Member(Member)```
+### [MemberMutedEvent](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Group/MemberMutedEvent.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```Type(Events)```
+- ```Period(String)```
+- ```Member(Member)```
+- ```Operator(Member)```
+### [MemberPermissionChangedEvent](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Group/MemberPermissionChangedEvent.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```Type(Events)```
+- ```Origin(Permissions)```
+- ```Current(Permissions)```
+- ```Group(Group)```
+	- 产生此事件的群
+- ```Member(Member)```
+	- 操作者
+### [MemberTitleChangedEvent](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Group/MemberTitleChangedEvent.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```Type(Events)```
+- ```Origin(String)```
+- ```Current(String)```
+- ```Group(Group)```
+	- 产生此事件的群
+- ```Member(Member)```
+	- 操作者
+### [MemberUnmutedEvent](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Group/MemberUnmutedEvent.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```Type(Events)```
+- ```Member(Member)```
+- ```Operator(Member)```
+### [MutedEvent](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Group/MutedEvent.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```Type(Events)```
+- ```Period(String)```
+	- 被禁言的时间，单位：秒
+- ```Operator(Member)```
+	- 禁言bot的操作者
+### [PermissionChangedEvent](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Group/PermissionChangedEvent.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```Type(Events)```
+- ```Origin(Permissions)```
+- ```Current(Permissions)```
+- ```Group(Group)```
+### [UnmutedEvent](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Group/UnmutedEvent.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```Type(Events)```
+- ```Operator(Member)```
+	- 取消禁言bot的操作者
+### [FriendInputStatusChangedEvent](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Friend/FriendInputStatusChangedEvent.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```Type(Events)```
+- ```Inputting(Boolean)```
+	- 当前输出状态是否正在输入
+- ```Friend(Friend)```
+	- 发出此事件的好友
+### [FriendNickChangedEvent](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Friend/FriendNickChangedEvent.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```Type(Events)```
+- ```Friend(Friend)```
+	- 发出此事件的好友
+- ```Origin(String)```
+	- 原昵称
+- ```New(String)```
+	- 新昵称
+### [FriendRecalledEvent](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Friend/FriendRecalledEvent.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```Type(Events)```
+- ```AuthorId(String)```
+	- 原消息发送者的QQ号
+- ```MessageId(String)```
+	- 原消息messageId
+- ```Time(String)```
+	- 原消息发送时间戳
+- ```Operator(String)```
+	- 好友QQ号或BotQQ号
+### [DroppedEvent](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Bot/DroppedEvent.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```QQ(String)```
+- ```Type(Events)```
+### [OfflineEvent](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Bot/OfflineEvent.cs)
+Bot自身事件
+#### Constructors
+- Constructor
+#### Propertys
+- ```QQ(String)```
+- ```Type(Events)```
+### [OfflineForceEvent](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Bot/OfflineForceEvent.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```QQ(String)```
+- ```Type(Events)```
+### [OnlineEvent](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Bot/OnlineEvent.cs)
+Bot自身事件
+#### Constructors
+- Constructor
+#### Propertys
+- ```QQ(String)```
+- ```Type(Events)```
+### [ReconnectedEvent](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Bot/ReconnectedEvent.cs)
+#### Constructors
+- Constructor
+#### Propertys
+- ```QQ(String)```
+- ```Type(Events)```
