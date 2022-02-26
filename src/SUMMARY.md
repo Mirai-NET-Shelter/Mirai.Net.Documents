@@ -10,6 +10,7 @@
     - [安装Mirai](./guide/install-mirai.md)
     - [安装Mirai.NET](./guide/install-mirai-dotnet.md)
     - [Hello, Wrold](./guide/hello-world.md)
+- [示例](./example.md)
 - [事件](./event.md)
 - [消息](./message.md)
 - [API](./apiReference.md)
