@@ -1,5 +1,7 @@
 # Mirai.Net 2.3.9
 
+**此页面与GitHub仓库上的README完全相同，如果你已经看过，请直接阅读下一个页面。**
+
 Mirai.Net 是基于[mirai-api-http]实现的轻量级[mirai]社区 sdk。 此项目遵循
 [AGPL-3.0 LICENSE](https://github.com/AHpxChina/Mirai.Net/blob/master/LICENSE)
 开源。
