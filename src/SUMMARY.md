@@ -11,6 +11,7 @@
     - [安装Mirai.NET](./guide/install-mirai-dotnet.md)
     - [Hello, Wrold](./guide/hello-world.md)
 - [示例](./example.md)
+    - [初始化Bot](./example/initializing-bot.md)
 - [事件](./event.md)
 - [消息](./message.md)
 - [API](./apiReference.md)
