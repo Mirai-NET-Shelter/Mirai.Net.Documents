@@ -4,52 +4,89 @@
 
 如果你觉得效果不尽如人意，欢迎到[AHpx.RG](https://github.com/SinoAHpx/AHpx.RG/issues)提交issue。
 
+### [MessageChainBuilder](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Utils/Scaffolds/MessageChainBuilder.cs)
+#### Constructors
+- Constructor
+#### Methods
+- ```Clear(MessageChainBuilder)```: 清除已追加的消息
+- ```Append(MessageChainBuilder)```: 追加自定义的消息
+	- ```messageBase(MessageBase)```
+- ```Plain(MessageChainBuilder)```: 追加一条文本消息
+	- ```text(String)```
+- ```At(MessageChainBuilder)```: 追加一条at消息
+	- ```qq(String)```
+- ```At(MessageChainBuilder)```: 追加一条at消息
+	- ```member(Member)```
+- ```App(MessageChainBuilder)```: 追加一条app消息
+	- ```content(String)```
+- ```AtAll(MessageChainBuilder)```: 追加一套at全体成员消息
+- ```Dice(MessageChainBuilder)```: 追加一条骰子消息
+	- ```value(String)```
+- ```ImageFromUrl(MessageChainBuilder)```: 追加图片消息
+	- ```url(String)```
+- ```ImageFromBase64(MessageChainBuilder)```: 追加图片消息
+	- ```base64(String)```
+- ```ImageFromPath(MessageChainBuilder)```: 追加图片消息
+	- ```file(String)```
+- ```ImageFromId(MessageChainBuilder)```: 追加图片消息
+	- ```id(String)```
+- ```FlashImageFromUrl(MessageChainBuilder)```: 追加图片消息
+	- ```url(String)```
+- ```FlashImageFromBase64(MessageChainBuilder)```: 追加闪照消息
+	- ```base64(String)```
+- ```FlashImageFromPath(MessageChainBuilder)```: 追加闪照消息
+	- ```file(String)```
+- ```FlashImageFromId(MessageChainBuilder)```: 追加闪照消息
+	- ```id(String)```
+- ```Json(MessageChainBuilder)```: 追加json消息
+	- ```json(String)```
+- ```Xml(MessageChainBuilder)```: 追加xml消息
+	- ```xml(String)```
+- ```VoiceFromPath(MessageChainBuilder)```: 追加一条语音消息
+	- ```path(String)```
+- ```VoiceFromBase64(MessageChainBuilder)```: 追加一条语音消息
+	- ```base64(String)```
+- ```VoiceFromId(MessageChainBuilder)```: 追加一条语音消息
+	- ```id(String)```
+- ```VoiceFromUrl(MessageChainBuilder)```: 追加一条语音消息
+	- ```url(String)```
+- ```Build(MessageChain)```
 ### [MessageScaffold](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Utils/Scaffolds/MessageScaffold.cs)
-
 消息相关的脚手架
 #### Methods
-- ```Append(MessageBase[])```
+- ```Append(MessageChain)```
 	- ```origin(String)```
 	- ```append(MessageBase[])```
-- ```Append(MessageBase[])```
+- ```Append(MessageChain)```
 	- ```origin(String)```
 	- ```append(IEnumerable`1)```
-- ```Append(MessageBase[])```
+- ```Append(MessageChain)```
 	- ```origin(String)```
 	- ```append(String)```
-- ```Append(MessageBase[])```
+- ```Append(MessageChain)```
 	- ```messageBase(MessageBase)```
 	- ```append(MessageBase[])```
-- ```Append(MessageBase[])```
+- ```Append(MessageChain)```
 	- ```messageBase(MessageBase)```
 	- ```append(IEnumerable`1)```
-- ```Append(MessageBase[])```
+- ```Append(MessageChain)```
 	- ```messageBase(MessageBase)```
 	- ```append(String)```
-- ```Append(MessageBase[])```
+- ```Append(MessageChain)```
 	- ```bases(IEnumerable`1)```
 	- ```append(MessageBase[])```
-- ```Append(MessageBase[])```
+- ```Append(MessageChain)```
 	- ```bases(IEnumerable`1)```
 	- ```append(String)```
-- ```Append(MessageBase[])```
+- ```Append(MessageChain)```
 	- ```bases(IEnumerable`1)```
 	- ```append(IEnumerable`1)```
-- ```Contains(Boolean)```
-	- ```bases(IEnumerable`1)```
-	- ```message(String)```
-- ```Contains(Boolean)```
-	- ```bases(IEnumerable`1)```
-	- ```message(String)```
-	- ```messageBase(MessageBase&)```
-- ```Contains(Boolean)```
-	- ```bases(IEnumerable`1)```
-	- ```message(String)```
-	- ```origin(IEnumerable`1&)```
-- ```GetPlainMessage(String)```
-	- ```messageChain(IEnumerable`1)```
-- ```GetSeparatedPlainMessage(IEnumerable`1)```
-	- ```messageChain(IEnumerable`1)```
+- ```ToMessageChain(MessageChain)```: 把枚举接口转换为高层MessageChain对象
+	- ```source(IEnumerable`1)```
+- ```ToMessageChain(MessageChain)```: 把单个消息对象转换成MessageChain对象
+	- ```origin(TSource)```
+- ```EscapeMiraiCode(String)```: 转义成兼容mirai码的文本
+	- ```origin(String)```
 ### [MiraiScaffold](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Utils/Scaffolds/MiraiScaffold.cs)
 #### Methods
 - ```GetPluginVersionAsync(Task`1)```: 拓展方法，获取mirai-api-http插件的版本，此方法不需要经过任何认证
@@ -67,13 +104,13 @@
 	- ```base(MessageReceiverBase)```
 - ```SendMessageAsync(Task`1)```: 发送群消息
 	- ```receiver(GroupMessageReceiver)```
-	- ```chain(MessageBase[])```
+	- ```chain(MessageChain)```
 - ```SendMessageAsync(Task`1)```: 发送好友消息
 	- ```receiver(FriendMessageReceiver)```
-	- ```chain(MessageBase[])```
+	- ```chain(MessageChain)```
 - ```SendMessageAsync(Task`1)```: 发送临时消息
 	- ```receiver(TempMessageReceiver)```
-	- ```chain(MessageBase[])```
+	- ```chain(MessageChain)```
 - ```SendMessageAsync(Task`1)```: 发送群消息
 	- ```receiver(GroupMessageReceiver)```
 	- ```message(String)```
@@ -87,13 +124,13 @@
 	- ```receiver(MessageReceiverBase)```
 - ```QuoteMessageAsync(Task`1)```
 	- ```receiver(FriendMessageReceiver)```
-	- ```chain(MessageBase[])```
+	- ```chain(MessageChain)```
 - ```QuoteMessageAsync(Task`1)```
 	- ```receiver(GroupMessageReceiver)```
-	- ```chain(MessageBase[])```
+	- ```chain(MessageChain)```
 - ```QuoteMessageAsync(Task`1)```
 	- ```receiver(TempMessageReceiver)```
-	- ```chain(MessageBase[])```
+	- ```chain(MessageChain)```
 - ```QuoteMessageAsync(Task`1)```
 	- ```receiver(FriendMessageReceiver)```
 	- ```message(String)```
@@ -173,6 +210,8 @@ mirai-api-http机器人描述
 	- ```target(String)```: 群号
 - ```GetMemberProfileAsync(Task`1)```: 获取群员资料
 	- ```member(Member)```
+- ```GetProfileAsync(Task`1)```: 获取任意QQ的资料（需要mirai-api-http 2.4.0及以上）
+	- ```target(String)```
 ### [FileManager](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Sessions/Http/Managers/FileManager.cs)
 #### Methods
 - ```GetFilesAsync(Task`1)```: 获取群文件列表
@@ -272,23 +311,23 @@ mirai-api-http机器人描述
 	- ```messageId(String)```
 - ```SendFriendMessageAsync(Task`1)```: 发送好友消息
 	- ```target(String)```
-	- ```chain(MessageBase[])```
+	- ```chain(MessageChain)```
 - ```SendFriendMessageAsync(Task`1)```: 发送好友消息
 	- ```friend(Friend)```
-	- ```chain(MessageBase[])```
+	- ```chain(MessageChain)```
 - ```SendGroupMessageAsync(Task`1)```: 发送群消息
 	- ```target(String)```
-	- ```chain(MessageBase[])```
+	- ```chain(MessageChain)```
 - ```SendGroupMessageAsync(Task`1)```: 发送群消息
 	- ```group(Group)```
-	- ```chain(MessageBase[])```
+	- ```chain(MessageChain)```
 - ```SendTempMessageAsync(Task`1)```: 发送群临时消息
 	- ```qq(String)```
 	- ```group(String)```
-	- ```chain(MessageBase[])```
+	- ```chain(MessageChain)```
 - ```SendTempMessageAsync(Task`1)```: 发送群临时消息
 	- ```member(Member)```
-	- ```chain(MessageBase[])```
+	- ```chain(MessageChain)```
 - ```SendNudgeAsync(Task)```: 发送头像戳一戳
 	- ```target(String)```: 戳一戳的目标
 	- ```subject(String)```: 在什么地方戳
@@ -298,28 +337,28 @@ mirai-api-http机器人描述
 - ```QuoteFriendMessageAsync(Task`1)```: 回复好友消息
 	- ```target(String)```
 	- ```messageId(String)```
-	- ```chain(MessageBase[])```
+	- ```chain(MessageChain)```
 - ```QuoteFriendMessageAsync(Task`1)```: 回复好友消息
 	- ```friend(Friend)```
 	- ```messageId(String)```
-	- ```chain(MessageBase[])```
+	- ```chain(MessageChain)```
 - ```QuoteGroupMessageAsync(Task`1)```: 回复群消息
 	- ```target(String)```
 	- ```messageId(String)```
-	- ```chain(MessageBase[])```
+	- ```chain(MessageChain)```
 - ```QuoteGroupMessageAsync(Task`1)```: 回复群消息
 	- ```group(Group)```
 	- ```messageId(String)```
-	- ```chain(MessageBase[])```
+	- ```chain(MessageChain)```
 - ```QuoteTempMessageAsync(Task`1)```: 回复临时消息
 	- ```memberId(String)```
 	- ```group(String)```
 	- ```messageId(String)```
-	- ```chain(MessageBase[])```
+	- ```chain(MessageChain)```
 - ```QuoteTempMessageAsync(Task`1)```: 回复临时消息
 	- ```member(Member)```
 	- ```messageId(String)```
-	- ```chain(MessageBase[])```
+	- ```chain(MessageChain)```
 - ```SendFriendMessageAsync(Task`1)```: 发送好友消息
 	- ```target(String)```
 	- ```message(String)```
@@ -531,12 +570,28 @@ mirai-api-http机器人描述
 - Constructor
 #### Propertys
 - ```Type(Messages)```
+#### Methods
+- ```ToString(String)```
+### [MessageChain](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/MessageChain.cs)
+#### Constructors
+- Constructor
+	- ```collection(IEnumerable`1)```
+- Constructor
+#### Propertys
+- ```Capacity(Int32)```
+- ```Count(Int32)```
+- ```Item(MessageBase)```
+#### Methods
+- ```GetPlainMessage(String)```: 获取消息链中的纯文本消息
+- ```GetSeparatedPlainMessage(List`1)```: 获取消息链中的文本消息并且保持原有连贯性
+- ```op_Implicit(MessageChain)```
+	- ```messageBase(MessageBase)```
 ### [MessageReceiverBase](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/MessageReceiverBase.cs)
 #### Constructors
 - Constructor
 #### Propertys
 - ```Type(MessageReceivers)```
-- ```MessageChain(IEnumerable`1)```
+- ```MessageChain(MessageChain)```
 ### [MessageReceivers](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/MessageReceivers.cs)
 #### Fields
 - ```Friend(MessageReceivers)```
@@ -563,6 +618,8 @@ mirai-api-http机器人描述
 - ```MusicShare(Messages)```
 - ```Forward(Messages)```
 - ```File(Messages)```
+- ```MarketFace(Messages)```
+- ```MiraiCode(Messages)```
 ### [FriendMessageReceiver](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/Receivers/FriendMessageReceiver.cs)
 #### Constructors
 - Constructor
@@ -575,7 +632,7 @@ mirai-api-http机器人描述
 	- 好友备注
 - ```Id(String)```
 	- 好友QQ号
-- ```MessageChain(IEnumerable`1)```
+- ```MessageChain(MessageChain)```
 ### [GroupMessageReceiver](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/Receivers/GroupMessageReceiver.cs)
 #### Constructors
 - Constructor
@@ -588,14 +645,14 @@ mirai-api-http机器人描述
 - ```Permission(Permissions)```
 	- bot在群内的权限
 - ```Type(MessageReceivers)```
-- ```MessageChain(IEnumerable`1)```
+- ```MessageChain(MessageChain)```
 ### [OtherClientMessageReceiver](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/Receivers/OtherClientMessageReceiver.cs)
 #### Constructors
 - Constructor
 #### Propertys
 - ```Type(MessageReceivers)```
 - ```Sender(OtherClient)```
-- ```MessageChain(IEnumerable`1)```
+- ```MessageChain(MessageChain)```
 ### [StrangerMessageReceiver](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/Receivers/StrangerMessageReceiver.cs)
 #### Constructors
 - Constructor
@@ -608,7 +665,7 @@ mirai-api-http机器人描述
 	- 备注
 - ```Id(String)```
 	- QQ号
-- ```MessageChain(IEnumerable`1)```
+- ```MessageChain(MessageChain)```
 ### [TempMessageReceiver](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/Receivers/TempMessageReceiver.cs)
 #### Constructors
 - Constructor
@@ -621,13 +678,13 @@ mirai-api-http机器人描述
 	- 群名称
 - ```Permission(Permissions)```
 	- bot在群内的权限
-- ```MessageChain(IEnumerable`1)```
+- ```MessageChain(MessageChain)```
 ### [AppMessage](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/Concretes/AppMessage.cs)
 #### Constructors
 - Constructor
 #### Propertys
 - ```Type(Messages)```
-- ```App(String)```
+- ```Content(String)```
 ### [AtAllMessage](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/Concretes/AtAllMessage.cs)
 #### Constructors
 - Constructor
@@ -710,6 +767,24 @@ mirai-api-http机器人描述
 #### Propertys
 - ```Json(String)```
 - ```Type(Messages)```
+### [MarketFaceMessage](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/Concretes/MarketFaceMessage.cs)
+商城表情
+- Remarks: 目前商城表情仅支持接收和转发，不支持构造发送
+#### Constructors
+- Constructor
+#### Propertys
+- ```Type(Messages)```
+- ```Id(String)```
+- ```Name(String)```
+### [MiraiCodeMessage](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/Concretes/MiraiCodeMessage.cs)
+#### Constructors
+- Constructor
+	- ```code(String)```
+- Constructor
+#### Propertys
+- ```Type(Messages)```
+- ```Code(String)```
+	- MiraiCode码，请确保已经转义
 ### [MusicShareMessage](https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/Concretes/MusicShareMessage.cs)
 #### Constructors
 - Constructor
