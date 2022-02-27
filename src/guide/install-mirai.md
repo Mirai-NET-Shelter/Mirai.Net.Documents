@@ -84,3 +84,9 @@ adapterSettings:
 输入命令:`/login <qq> <密码>`，就可以登陆机器人账号了。通常来说，正常的机器人账号是可以直接登陆的，如果出现红色的错误提示，那么你可以根据`mcl.cmd`输出的提示文本找人帮忙或者自己解决。
 
 到这里，Mirai.NET所需要的`mirai`环境已经配置好了。
+
+### 登录需要验证码
+
+如果你登陆mcl弹出了下面的弹窗，请访问[TxCaptchaHelper](https://github.com/mzdluo123/TxCaptchaHelper)并按照提示操作。
+
+![picture 1](https://s2.loli.net/2022/02/27/AztkmgU4o6W8nyT.png)  
