@@ -4,3 +4,10 @@ language = "zh"
 multilingual = false
 src = "src"
 title = "Mirai.NET Documentation"
+
+[output.html]
+default-theme="rust"
+preferred-dark-theme = "navy"
+copy-fonts = true
+git-repository-url = "https://github.com/SinoAHpx/Mirai.Net"
+git-repository-icon = "fa-github"
