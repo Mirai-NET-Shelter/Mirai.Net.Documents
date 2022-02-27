@@ -16,6 +16,4 @@
     - [发送消息](./example/sending-message.md)
     - [订阅事件](./example/subscribing-event.md)
     - [处理各种请求](./example/handle-various-requests.md)
-- [事件](./event.md)
-- [消息](./message.md)
 - [API](./apiReference.md)

@@ -35,6 +35,16 @@ bot.MessageReceived
 
 只需要把上文中的`OfType<>`尖括号里替换为想要的消息接收器即可。
 
+这些`xxReceiver`都是`MessageReceiverBase`的子类，它们都有：
++ `MessageChain`属性，用来表示收到的消息链。
++ `Sender`属性，用来表示消息的发送者，每个子类中的`Sender`都有其对应的类型。
+
++ FriendMessageReceiver，用来接收好友消息，`Sender`是[Friend](https://github.com/SinoAHpx/Mirai.Net/blob/2.4/Mirai.Net/Data/Shared/Friend.cs)。
++ GroupMessageReceiver，用来接收群消息，`Sender`是[Member](https://github.com/SinoAHpx/Mirai.Net/blob/2.4/Mirai.Net/Data/Shared/Member.cs)。
++ TempMessageReceiver，用来接收临时消息，`Sender`是[Member](https://github.com/SinoAHpx/Mirai.Net/blob/2.4/Mirai.Net/Data/Shared/Friend.cs)。
++ StrangerMessageReceiver，用来接收陌生人消息，`Sender`是[Friend](https://github.com/SinoAHpx/Mirai.Net/blob/2.4/Mirai.Net/Data/Shared/Friend.cs)。
++ OtherClientMessageReceiver，用来接收其它客户端消息，`Sender`是[OtherClient](https://github.com/SinoAHpx/Mirai.Net/blob/2.4/Mirai.Net/Data/Shared/OtherClient.cs)。
+
 ## 完整代码
 
 ```cs

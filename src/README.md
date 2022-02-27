@@ -1,10 +1,19 @@
-# Mirai.Net 2.3.9
+# Mirai.NET 2.3.9 文档
+
+## 前言
+
+欢迎来到Mirai.NET的文档，此文档基于[mdbook](https://rust-lang.github.io/mdBook/)构建，如果你仍觉得Mirai.NET的文档不够完善，欢迎到[主仓库](https://github.com/SinoAHpx/Mirai.Net/issues)提交issue，或者[加入QQ交流群](https://jq.qq.com/?_wv=1027&k=zGzQ5zZm)提问。
 
 **此页面与GitHub仓库上的README完全相同，如果你已经看过，请直接阅读下一个页面。**
 
 **本文档所有的代码都遵循[WTFPL](http://www.wtfpl.net/)协议**
 
-如果你觉得这是个很酷的项目的话，不妨考虑给它点一个Star，如果你还觉得挺酷但还不够好的话，也欢迎提交Pull Request和Issue。
+## 贡献文档
+
++ Fork[文档仓库](https://github.com/SinoAHpx/Mirai.Net.Documents)
++ 克隆你fork的仓库的默认分支
++ 安装和配置[mdbook](https://rust-lang.github.io/mdBook/) （不用担心，这很简单）
++ 向[文档仓库](https://github.com/SinoAHpx/Mirai.Net.Documents)提交Pull Request
 
 ## 速览
 
