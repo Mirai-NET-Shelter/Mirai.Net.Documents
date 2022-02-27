@@ -1,6 +1,6 @@
-cd book
+mdbook build
 
-rm -rf .git
+cd book
 
 date=$(date '+%Y-%m-%d %H:%M:%S')
 
@@ -9,5 +9,7 @@ git add -A
 git commit -m $(date '+%Y-%m-%d')
 
 git push -f https://github.com/SinoAHpx/Mirai.Net.Documents.git master:new-gh-pages
+
+rm -rf .git
 
 cd ..
