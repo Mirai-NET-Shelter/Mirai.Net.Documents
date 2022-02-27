@@ -12,6 +12,7 @@
     - [Hello, Wrold](./guide/hello-world.md)
 - [示例](./example.md)
     - [初始化Bot](./example/initializing-bot.md)
+    - [处理好友请求](./example/handle-friend-request.md)
 - [事件](./event.md)
 - [消息](./message.md)
 - [API](./apiReference.md)
