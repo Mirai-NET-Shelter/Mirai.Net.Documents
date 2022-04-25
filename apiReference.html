@@ -1,0 +1,2858 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="sidebar-visible no-js rust">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>API - Mirai.NET Documentation</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "rust";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">Mirai.NET</li><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> README</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="guide.html"><strong aria-hidden="true">2.</strong> 指北</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="guide/before-start.html"><strong aria-hidden="true">2.1.</strong> 开始之前</a></li><li class="chapter-item expanded "><a href="guide/common-sense.html"><strong aria-hidden="true">2.2.</strong> 基础知识</a></li><li class="chapter-item expanded "><a href="guide/install-mirai.html"><strong aria-hidden="true">2.3.</strong> 安装Mirai</a></li><li class="chapter-item expanded "><a href="guide/install-mirai-dotnet.html"><strong aria-hidden="true">2.4.</strong> 安装Mirai.NET</a></li><li class="chapter-item expanded "><a href="guide/hello-world.html"><strong aria-hidden="true">2.5.</strong> Hello, Wrold</a></li></ol></li><li class="chapter-item expanded "><a href="example.html"><strong aria-hidden="true">3.</strong> 示例</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="example/initializing-bot.html"><strong aria-hidden="true">3.1.</strong> 初始化Bot</a></li><li class="chapter-item expanded "><a href="example/receiving-message.html"><strong aria-hidden="true">3.2.</strong> 接收消息</a></li><li class="chapter-item expanded "><a href="example/sending-message.html"><strong aria-hidden="true">3.3.</strong> 发送消息</a></li><li class="chapter-item expanded "><a href="example/subscribing-event.html"><strong aria-hidden="true">3.4.</strong> 订阅事件</a></li><li class="chapter-item expanded "><a href="example/sending-image.html"><strong aria-hidden="true">3.5.</strong> 发送图片</a></li><li class="chapter-item expanded "><a href="example/sending-voice.html"><strong aria-hidden="true">3.6.</strong> 发送语音</a></li><li class="chapter-item expanded "><a href="example/handle-various-requests.html"><strong aria-hidden="true">3.7.</strong> 处理各种请求</a></li><li class="chapter-item expanded "><a href="example/delay-send-and-recall.html"><strong aria-hidden="true">3.8.</strong> 延迟发送/撤回消息</a></li></ol></li><li class="chapter-item expanded "><a href="faq.html"><strong aria-hidden="true">4.</strong> 常见问题解答</a></li><li class="chapter-item expanded "><a href="apiReference.html" class="active"><strong aria-hidden="true">5.</strong> API</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Mirai.NET Documentation</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/SinoAHpx/Mirai.Net" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="api"><a class="header" href="#api">API</a></h1>
+<p>此文档由<a href="https://github.com/SinoAHpx/AHpx.RG">AHpx.RG</a>自动生成。</p>
+<p>如果你觉得效果不尽如人意，欢迎到<a href="https://github.com/SinoAHpx/AHpx.RG/issues">AHpx.RG</a>提交issue。</p>
+<h3 id="messagechainbuilder"><a class="header" href="#messagechainbuilder"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Utils/Scaffolds/MessageChainBuilder.cs">MessageChainBuilder</a></a></h3>
+<h4 id="constructors"><a class="header" href="#constructors">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="methods"><a class="header" href="#methods">Methods</a></h4>
+<ul>
+<li><code>Clear(MessageChainBuilder)</code>: 清除已追加的消息</li>
+<li><code>Append(MessageChainBuilder)</code>: 追加自定义的消息
+<ul>
+<li><code>messageBase(MessageBase)</code></li>
+</ul>
+</li>
+<li><code>Plain(MessageChainBuilder)</code>: 追加一条文本消息
+<ul>
+<li><code>text(String)</code></li>
+</ul>
+</li>
+<li><code>At(MessageChainBuilder)</code>: 追加一条at消息
+<ul>
+<li><code>qq(String)</code></li>
+</ul>
+</li>
+<li><code>At(MessageChainBuilder)</code>: 追加一条at消息
+<ul>
+<li><code>member(Member)</code></li>
+</ul>
+</li>
+<li><code>App(MessageChainBuilder)</code>: 追加一条app消息
+<ul>
+<li><code>content(String)</code></li>
+</ul>
+</li>
+<li><code>AtAll(MessageChainBuilder)</code>: 追加一套at全体成员消息</li>
+<li><code>Dice(MessageChainBuilder)</code>: 追加一条骰子消息
+<ul>
+<li><code>value(String)</code></li>
+</ul>
+</li>
+<li><code>ImageFromUrl(MessageChainBuilder)</code>: 追加图片消息
+<ul>
+<li><code>url(String)</code></li>
+</ul>
+</li>
+<li><code>ImageFromBase64(MessageChainBuilder)</code>: 追加图片消息
+<ul>
+<li><code>base64(String)</code></li>
+</ul>
+</li>
+<li><code>ImageFromPath(MessageChainBuilder)</code>: 追加图片消息
+<ul>
+<li><code>file(String)</code></li>
+</ul>
+</li>
+<li><code>ImageFromId(MessageChainBuilder)</code>: 追加图片消息
+<ul>
+<li><code>id(String)</code></li>
+</ul>
+</li>
+<li><code>FlashImageFromUrl(MessageChainBuilder)</code>: 追加图片消息
+<ul>
+<li><code>url(String)</code></li>
+</ul>
+</li>
+<li><code>FlashImageFromBase64(MessageChainBuilder)</code>: 追加闪照消息
+<ul>
+<li><code>base64(String)</code></li>
+</ul>
+</li>
+<li><code>FlashImageFromPath(MessageChainBuilder)</code>: 追加闪照消息
+<ul>
+<li><code>file(String)</code></li>
+</ul>
+</li>
+<li><code>FlashImageFromId(MessageChainBuilder)</code>: 追加闪照消息
+<ul>
+<li><code>id(String)</code></li>
+</ul>
+</li>
+<li><code>Json(MessageChainBuilder)</code>: 追加json消息
+<ul>
+<li><code>json(String)</code></li>
+</ul>
+</li>
+<li><code>Xml(MessageChainBuilder)</code>: 追加xml消息
+<ul>
+<li><code>xml(String)</code></li>
+</ul>
+</li>
+<li><code>VoiceFromPath(MessageChainBuilder)</code>: 追加一条语音消息
+<ul>
+<li><code>path(String)</code></li>
+</ul>
+</li>
+<li><code>VoiceFromBase64(MessageChainBuilder)</code>: 追加一条语音消息
+<ul>
+<li><code>base64(String)</code></li>
+</ul>
+</li>
+<li><code>VoiceFromId(MessageChainBuilder)</code>: 追加一条语音消息
+<ul>
+<li><code>id(String)</code></li>
+</ul>
+</li>
+<li><code>VoiceFromUrl(MessageChainBuilder)</code>: 追加一条语音消息
+<ul>
+<li><code>url(String)</code></li>
+</ul>
+</li>
+<li><code>Build(MessageChain)</code></li>
+</ul>
+<h3 id="messagescaffold"><a class="header" href="#messagescaffold"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Utils/Scaffolds/MessageScaffold.cs">MessageScaffold</a></a></h3>
+<p>消息相关的脚手架</p>
+<h4 id="methods-1"><a class="header" href="#methods-1">Methods</a></h4>
+<ul>
+<li><code>Append(MessageChain)</code>
+<ul>
+<li><code>origin(String)</code></li>
+<li><code>append(MessageBase[])</code></li>
+</ul>
+</li>
+<li><code>Append(MessageChain)</code>
+<ul>
+<li><code>origin(String)</code></li>
+<li><code>append(IEnumerable`1)</code></li>
+</ul>
+</li>
+<li><code>Append(MessageChain)</code>
+<ul>
+<li><code>origin(String)</code></li>
+<li><code>append(String)</code></li>
+</ul>
+</li>
+<li><code>Append(MessageChain)</code>
+<ul>
+<li><code>messageBase(MessageBase)</code></li>
+<li><code>append(MessageBase[])</code></li>
+</ul>
+</li>
+<li><code>Append(MessageChain)</code>
+<ul>
+<li><code>messageBase(MessageBase)</code></li>
+<li><code>append(IEnumerable`1)</code></li>
+</ul>
+</li>
+<li><code>Append(MessageChain)</code>
+<ul>
+<li><code>messageBase(MessageBase)</code></li>
+<li><code>append(String)</code></li>
+</ul>
+</li>
+<li><code>Append(MessageChain)</code>
+<ul>
+<li><code>bases(IEnumerable`1)</code></li>
+<li><code>append(MessageBase[])</code></li>
+</ul>
+</li>
+<li><code>Append(MessageChain)</code>
+<ul>
+<li><code>bases(IEnumerable`1)</code></li>
+<li><code>append(String)</code></li>
+</ul>
+</li>
+<li><code>Append(MessageChain)</code>
+<ul>
+<li><code>bases(IEnumerable`1)</code></li>
+<li><code>append(IEnumerable`1)</code></li>
+</ul>
+</li>
+<li><code>ToMessageChain(MessageChain)</code>: 把枚举接口转换为高层MessageChain对象
+<ul>
+<li><code>source(IEnumerable`1)</code></li>
+</ul>
+</li>
+<li><code>ToMessageChain(MessageChain)</code>: 把单个消息对象转换成MessageChain对象
+<ul>
+<li><code>origin(TSource)</code></li>
+</ul>
+</li>
+<li><code>EscapeMiraiCode(String)</code>: 转义成兼容mirai码的文本
+<ul>
+<li><code>origin(String)</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="miraiscaffold"><a class="header" href="#miraiscaffold"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Utils/Scaffolds/MiraiScaffold.cs">MiraiScaffold</a></a></h3>
+<h4 id="methods-2"><a class="header" href="#methods-2">Methods</a></h4>
+<ul>
+<li><code>GetPluginVersionAsync(Task`1)</code>: 拓展方法，获取mirai-api-http插件的版本，此方法不需要经过任何认证
+<ul>
+<li><code>bot(MiraiBot)</code></li>
+</ul>
+</li>
+<li><code>IsFriend(Boolean)</code>: 判断某QQ号是否为bot账号的好友
+<ul>
+<li><code>bot(MiraiBot)</code></li>
+<li><code>qq(String)</code></li>
+</ul>
+</li>
+<li><code>IsFriend(Boolean)</code>: 判断某群成员是否是bot账号的好友
+<ul>
+<li><code>bot(MiraiBot)</code></li>
+<li><code>member(Member)</code></li>
+</ul>
+</li>
+<li><code>IsFriend(Boolean)</code>: 判断某人是否是bot账号的好友
+<ul>
+<li><code>bot(MiraiBot)</code></li>
+<li><code>friend(Friend)</code></li>
+</ul>
+</li>
+<li><code>Concretize(T)</code>: 把MessageReceiverBase转换为具体的MessageReceiver
+<ul>
+<li><code>base(MessageReceiverBase)</code></li>
+</ul>
+</li>
+<li><code>SendMessageAsync(Task`1)</code>: 发送群消息
+<ul>
+<li><code>receiver(GroupMessageReceiver)</code></li>
+<li><code>chain(MessageChain)</code></li>
+</ul>
+</li>
+<li><code>SendMessageAsync(Task`1)</code>: 发送好友消息
+<ul>
+<li><code>receiver(FriendMessageReceiver)</code></li>
+<li><code>chain(MessageChain)</code></li>
+</ul>
+</li>
+<li><code>SendMessageAsync(Task`1)</code>: 发送临时消息
+<ul>
+<li><code>receiver(TempMessageReceiver)</code></li>
+<li><code>chain(MessageChain)</code></li>
+</ul>
+</li>
+<li><code>SendMessageAsync(Task`1)</code>: 发送群消息
+<ul>
+<li><code>receiver(GroupMessageReceiver)</code></li>
+<li><code>message(String)</code></li>
+</ul>
+</li>
+<li><code>SendMessageAsync(Task`1)</code>: 发送好友消息
+<ul>
+<li><code>receiver(FriendMessageReceiver)</code></li>
+<li><code>message(String)</code></li>
+</ul>
+</li>
+<li><code>SendMessageAsync(Task`1)</code>: 发送临时消息
+<ul>
+<li><code>receiver(TempMessageReceiver)</code></li>
+<li><code>message(String)</code></li>
+</ul>
+</li>
+<li><code>RecallAsync(Task)</code>: 撤回收到的消息
+<ul>
+<li><code>receiver(MessageReceiverBase)</code></li>
+</ul>
+</li>
+<li><code>QuoteMessageAsync(Task`1)</code>
+<ul>
+<li><code>receiver(FriendMessageReceiver)</code></li>
+<li><code>chain(MessageChain)</code></li>
+</ul>
+</li>
+<li><code>QuoteMessageAsync(Task`1)</code>
+<ul>
+<li><code>receiver(GroupMessageReceiver)</code></li>
+<li><code>chain(MessageChain)</code></li>
+</ul>
+</li>
+<li><code>QuoteMessageAsync(Task`1)</code>
+<ul>
+<li><code>receiver(TempMessageReceiver)</code></li>
+<li><code>chain(MessageChain)</code></li>
+</ul>
+</li>
+<li><code>QuoteMessageAsync(Task`1)</code>
+<ul>
+<li><code>receiver(FriendMessageReceiver)</code></li>
+<li><code>message(String)</code></li>
+</ul>
+</li>
+<li><code>QuoteMessageAsync(Task`1)</code>
+<ul>
+<li><code>receiver(GroupMessageReceiver)</code></li>
+<li><code>message(String)</code></li>
+</ul>
+</li>
+<li><code>QuoteMessageAsync(Task`1)</code>
+<ul>
+<li><code>receiver(TempMessageReceiver)</code></li>
+<li><code>message(String)</code></li>
+</ul>
+</li>
+<li><code>Handle(Task)</code>: 处理好友请求
+<ul>
+<li><code>event(NewFriendRequestedEvent)</code></li>
+<li><code>handler(NewFriendRequestHandlers)</code></li>
+<li><code>message(String)</code></li>
+</ul>
+</li>
+<li><code>Handle(Task)</code>: 处理新成员加群请求
+<ul>
+<li><code>requestedEvent(NewMemberRequestedEvent)</code></li>
+<li><code>handler(NewMemberRequestHandlers)</code></li>
+<li><code>message(String)</code></li>
+</ul>
+</li>
+<li><code>Handle(Task)</code>: 处理bot被邀请进群请求
+<ul>
+<li><code>requestedEvent(NewInvitationRequestedEvent)</code></li>
+<li><code>handler(NewInvitationRequestHandlers)</code></li>
+<li><code>message(String)</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="modulescaffold"><a class="header" href="#modulescaffold"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Utils/Scaffolds/ModuleScaffold.cs">ModuleScaffold</a></a></h3>
+<h4 id="methods-3"><a class="header" href="#methods-3">Methods</a></h4>
+<ul>
+<li><code>GetModules(IEnumerable`1)</code>: 获取泛型参数同一个命名空间下的所有模块
+<ul>
+<li><code>module(T)</code></li>
+</ul>
+</li>
+<li><code>SubscribeModule</code>: 传播订阅到模块
+<ul>
+<li><code>modules(IEnumerable`1)</code></li>
+<li><code>base(MessageReceiverBase)</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="enumeratedtypeutils"><a class="header" href="#enumeratedtypeutils"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Utils/Internal/EnumeratedTypeUtils.cs">EnumeratedTypeUtils</a></a></h3>
+<h3 id="exceptionutils"><a class="header" href="#exceptionutils"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Utils/Internal/ExceptionUtils.cs">ExceptionUtils</a></a></h3>
+<h3 id="reflectionutils"><a class="header" href="#reflectionutils"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Utils/Internal/ReflectionUtils.cs">ReflectionUtils</a></a></h3>
+<h4 id="methods-4"><a class="header" href="#methods-4">Methods</a></h4>
+<ul>
+<li><code>GetDefaultInstances(IEnumerable`1)</code>: 获取某个命名空间下所有类的默认实例
+<ul>
+<li><code>namespace(String)</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="miraibot"><a class="header" href="#miraibot"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Sessions/MiraiBot.cs">MiraiBot</a></a></h3>
+<p>mirai-api-http机器人描述</p>
+<h4 id="constructors-1"><a class="header" href="#constructors-1">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys"><a class="header" href="#propertys">Propertys</a></h4>
+<ul>
+<li><code>Instance(MiraiBot)</code>
+<ul>
+<li>最后一个启动的MiraiBot实例</li>
+</ul>
+</li>
+<li><code>Address(String)</code>
+<ul>
+<li>mirai-api-http本地服务器地址，比如：localhost:114514</li>
+</ul>
+</li>
+<li><code>QQ(String)</code>
+<ul>
+<li>建立连接的QQ账号</li>
+</ul>
+</li>
+<li><code>VerifyKey(String)</code>
+<ul>
+<li>Mirai.Net总是需要一个VerifyKey</li>
+</ul>
+</li>
+<li><code>Groups(Lazy`1)</code></li>
+<li><code>Friends(Lazy`1)</code></li>
+<li><code>EventReceived(IObservable`1)</code></li>
+<li><code>MessageReceived(IObservable`1)</code></li>
+<li><code>UnknownMessageReceived(IObservable`1)</code></li>
+<li><code>DisconnectionHappened(IObservable`1)</code></li>
+</ul>
+<h4 id="methods-5"><a class="header" href="#methods-5">Methods</a></h4>
+<ul>
+<li><code>Dispose</code></li>
+<li><code>LaunchAsync(Task)</code></li>
+</ul>
+<h3 id="accountmanager"><a class="header" href="#accountmanager"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Sessions/Http/Managers/AccountManager.cs">AccountManager</a></a></h3>
+<p>账号管理器</p>
+<h4 id="methods-6"><a class="header" href="#methods-6">Methods</a></h4>
+<ul>
+<li><code>GetFriendsAsync(Task`1)</code>: 获取bot账号的好友列表</li>
+<li><code>GetGroupsAsync(Task`1)</code>: 获取bot账号的QQ群列表</li>
+<li><code>GetGroupMembersAsync(Task`1)</code>: 获取某群的全部群成员
+<ul>
+<li><code>target(String)</code></li>
+</ul>
+</li>
+<li><code>GetGroupMembersAsync(Task`1)</code>: 获取某群的全部群成员
+<ul>
+<li><code>target(Group)</code></li>
+</ul>
+</li>
+<li><code>DeleteFriendAsync(Task)</code>: 删除好友
+<ul>
+<li><code>target(String)</code></li>
+</ul>
+</li>
+<li><code>DeleteFriendAsync(Task)</code>: 删除好友
+<ul>
+<li><code>friend(Friend)</code></li>
+</ul>
+</li>
+<li><code>GetBotProfileAsync(Task`1)</code>: 获取bot资料</li>
+<li><code>GetFriendProfileAsync(Task`1)</code>: 获取好友资料
+<ul>
+<li><code>target(String)</code></li>
+</ul>
+</li>
+<li><code>GetFriendProfileAsync(Task`1)</code>: 获取好友资料
+<ul>
+<li><code>target(Friend)</code></li>
+</ul>
+</li>
+<li><code>GetMemberProfileAsync(Task`1)</code>: 获取群员资料
+<ul>
+<li><code>id(String)</code></li>
+<li><code>target(String)</code>: 群号</li>
+</ul>
+</li>
+<li><code>GetMemberProfileAsync(Task`1)</code>: 获取群员资料
+<ul>
+<li><code>member(Member)</code></li>
+</ul>
+</li>
+<li><code>GetProfileAsync(Task`1)</code>: 获取任意QQ的资料（需要mirai-api-http 2.4.0及以上）
+<ul>
+<li><code>target(String)</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="filemanager"><a class="header" href="#filemanager"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Sessions/Http/Managers/FileManager.cs">FileManager</a></a></h3>
+<h4 id="methods-7"><a class="header" href="#methods-7">Methods</a></h4>
+<ul>
+<li><code>GetFilesAsync(Task`1)</code>: 获取群文件列表
+<ul>
+<li><code>target(String)</code></li>
+<li><code>withDownloadInfo(Nullable`1)</code>: 附带下载信息，默认不附带</li>
+<li><code>folderId(String)</code>: 文件夹id，空字符串即为根目录</li>
+</ul>
+</li>
+<li><code>GetFileAsync(Task`1)</code>: 获取群文件信息
+<ul>
+<li><code>target(String)</code>: 群号</li>
+<li><code>fileId(String)</code>: 文件id</li>
+<li><code>withDownloadInfo(Nullable`1)</code></li>
+</ul>
+</li>
+<li><code>CreateFolderAsync(Task`1)</code>: 创建群文件夹
+<ul>
+<li><code>target(String)</code></li>
+<li><code>name(String)</code></li>
+</ul>
+</li>
+<li><code>DeleteFileAsync(Task)</code>: 删除群文件
+<ul>
+<li><code>target(String)</code></li>
+<li><code>fileId(String)</code></li>
+</ul>
+</li>
+<li><code>MoveFileAsync(Task)</code>: 移动群文件
+<ul>
+<li><code>target(String)</code></li>
+<li><code>fileId(String)</code>: 移动文件id</li>
+<li><code>destination(String)</code>: 移动目标文件夹id</li>
+</ul>
+</li>
+<li><code>RenameFileAsync(Task)</code>: 重命名群文件
+<ul>
+<li><code>target(String)</code></li>
+<li><code>fileId(String)</code>: 重命名文件id</li>
+<li><code>newName(String)</code>: 新文件名</li>
+</ul>
+</li>
+<li><code>UploadFileAsync(Task`1)</code>: 上传群文件，参考https://github.com/project-mirai/mirai-api-http/issues/456
+<ul>
+<li><code>target(String)</code>: 上传到哪个群</li>
+<li><code>filePath(String)</code>: 文件的路径</li>
+<li><code>uploadPath(String)</code>: 上传路径，例如/xx（不可以指定文件名，默认为上传到根目录）</li>
+</ul>
+</li>
+<li><code>UploadImageAsync(Task`1)</code>: 上传图片
+<ul>
+<li><code>imagePath(String)</code>: 图片路径</li>
+<li><code>imageUploadTargets(ImageUploadTargets)</code>: 上传类型</li>
+</ul>
+</li>
+<li><code>UploadVoiceAsync(Task`1)</code>: 上传语音
+<ul>
+<li><code>voicePath(String)</code>: 语言路径</li>
+</ul>
+</li>
+</ul>
+<h3 id="groupmanager"><a class="header" href="#groupmanager"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Sessions/Http/Managers/GroupManager.cs">GroupManager</a></a></h3>
+<h4 id="methods-8"><a class="header" href="#methods-8">Methods</a></h4>
+<ul>
+<li><code>MuteAsync(Task)</code>: 禁言某群员
+<ul>
+<li><code>target(String)</code></li>
+<li><code>group(String)</code></li>
+<li><code>time(Int32)</code></li>
+</ul>
+</li>
+<li><code>MuteAsync(Task)</code>
+<ul>
+<li><code>target(String)</code></li>
+<li><code>group(String)</code></li>
+<li><code>time(TimeSpan)</code></li>
+</ul>
+</li>
+<li><code>MuteAsync(Task)</code>: 禁言某群员
+<ul>
+<li><code>member(Member)</code></li>
+<li><code>time(Int32)</code></li>
+</ul>
+</li>
+<li><code>MuteAsync(Task)</code>
+<ul>
+<li><code>member(Member)</code></li>
+<li><code>time(TimeSpan)</code></li>
+</ul>
+</li>
+<li><code>UnMuteAsync(Task)</code>: 取消禁言
+<ul>
+<li><code>target(String)</code></li>
+<li><code>group(String)</code></li>
+</ul>
+</li>
+<li><code>UnMuteAsync(Task)</code>: 取消禁言
+<ul>
+<li><code>member(Member)</code></li>
+</ul>
+</li>
+<li><code>KickAsync(Task)</code>: 踢出某群员
+<ul>
+<li><code>target(String)</code></li>
+<li><code>group(String)</code></li>
+<li><code>message(String)</code></li>
+</ul>
+</li>
+<li><code>KickAsync(Task)</code>: 踢出某群员
+<ul>
+<li><code>member(Member)</code></li>
+<li><code>message(String)</code></li>
+</ul>
+</li>
+<li><code>LeaveAsync(Task)</code>: bot退出某群
+<ul>
+<li><code>target(String)</code></li>
+</ul>
+</li>
+<li><code>LeaveAsync(Task)</code>: bot退出某群
+<ul>
+<li><code>group(Group)</code></li>
+</ul>
+</li>
+<li><code>MuteAllAsync(Task)</code>: 全体禁言
+<ul>
+<li><code>target(String)</code></li>
+<li><code>mute(Boolean)</code>: 是否禁言</li>
+</ul>
+</li>
+<li><code>MuteAllAsync(Task)</code>: 全体禁言
+<ul>
+<li><code>group(Group)</code></li>
+<li><code>mute(Boolean)</code>: 是否禁言</li>
+</ul>
+</li>
+<li><code>SetEssenceMessageAsync(Task)</code>: 设置精华消息
+<ul>
+<li><code>messageId(String)</code>: 消息id</li>
+</ul>
+</li>
+<li><code>SetEssenceMessageAsync(Task)</code>: 设置精华消息
+<ul>
+<li><code>receiver(MessageReceiverBase)</code></li>
+</ul>
+</li>
+<li><code>GetGroupSettingAsync(Task`1)</code>: 获取群设置
+<ul>
+<li><code>target(String)</code></li>
+</ul>
+</li>
+<li><code>GetGroupSettingAsync(Task`1)</code>: 获取群设置
+<ul>
+<li><code>group(Group)</code></li>
+</ul>
+</li>
+<li><code>SetGroupSettingAsync(Task)</code>: 修改群设置
+<ul>
+<li><code>target(String)</code></li>
+<li><code>setting(GroupSetting)</code></li>
+</ul>
+</li>
+<li><code>SetGroupSettingAsync(Task)</code>: 修改群设置
+<ul>
+<li><code>group(Group)</code></li>
+<li><code>setting(GroupSetting)</code></li>
+</ul>
+</li>
+<li><code>GetMemberAsync(Task`1)</code>: 获取群员
+<ul>
+<li><code>memberQQ(String)</code></li>
+<li><code>group(String)</code></li>
+</ul>
+</li>
+<li><code>SetMemberInfoAsync(Task`1)</code>: 修改群员设置,需要相关的权限
+<ul>
+<li><code>memberQQ(String)</code></li>
+<li><code>group(String)</code></li>
+<li><code>card(String)</code>: 群名片, 需要管理员权限</li>
+<li><code>title(String)</code>: 群头衔, 需要群主权限</li>
+</ul>
+</li>
+</ul>
+<h3 id="messagemanager"><a class="header" href="#messagemanager"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Sessions/Http/Managers/MessageManager.cs">MessageManager</a></a></h3>
+<h4 id="methods-9"><a class="header" href="#methods-9">Methods</a></h4>
+<ul>
+<li><code>GetMessageReceiverByIdAsync(Task`1)</code>: 由消息id获取一条消息
+<ul>
+<li><code>messageId(String)</code></li>
+</ul>
+</li>
+<li><code>SendFriendMessageAsync(Task`1)</code>: 发送好友消息
+<ul>
+<li><code>target(String)</code></li>
+<li><code>chain(MessageChain)</code></li>
+</ul>
+</li>
+<li><code>SendFriendMessageAsync(Task`1)</code>: 发送好友消息
+<ul>
+<li><code>friend(Friend)</code></li>
+<li><code>chain(MessageChain)</code></li>
+</ul>
+</li>
+<li><code>SendGroupMessageAsync(Task`1)</code>: 发送群消息
+<ul>
+<li><code>target(String)</code></li>
+<li><code>chain(MessageChain)</code></li>
+</ul>
+</li>
+<li><code>SendGroupMessageAsync(Task`1)</code>: 发送群消息
+<ul>
+<li><code>group(Group)</code></li>
+<li><code>chain(MessageChain)</code></li>
+</ul>
+</li>
+<li><code>SendTempMessageAsync(Task`1)</code>: 发送群临时消息
+<ul>
+<li><code>qq(String)</code></li>
+<li><code>group(String)</code></li>
+<li><code>chain(MessageChain)</code></li>
+</ul>
+</li>
+<li><code>SendTempMessageAsync(Task`1)</code>: 发送群临时消息
+<ul>
+<li><code>member(Member)</code></li>
+<li><code>chain(MessageChain)</code></li>
+</ul>
+</li>
+<li><code>SendNudgeAsync(Task)</code>: 发送头像戳一戳
+<ul>
+<li><code>target(String)</code>: 戳一戳的目标</li>
+<li><code>subject(String)</code>: 在什么地方戳</li>
+<li><code>kind(MessageReceivers)</code>: 只可以选Friend, Strange和Group</li>
+</ul>
+</li>
+<li><code>RecallAsync(Task)</code>: 撤回消息
+<ul>
+<li><code>messageId(String)</code>: 消息id</li>
+</ul>
+</li>
+<li><code>QuoteFriendMessageAsync(Task`1)</code>: 回复好友消息
+<ul>
+<li><code>target(String)</code></li>
+<li><code>messageId(String)</code></li>
+<li><code>chain(MessageChain)</code></li>
+</ul>
+</li>
+<li><code>QuoteFriendMessageAsync(Task`1)</code>: 回复好友消息
+<ul>
+<li><code>friend(Friend)</code></li>
+<li><code>messageId(String)</code></li>
+<li><code>chain(MessageChain)</code></li>
+</ul>
+</li>
+<li><code>QuoteGroupMessageAsync(Task`1)</code>: 回复群消息
+<ul>
+<li><code>target(String)</code></li>
+<li><code>messageId(String)</code></li>
+<li><code>chain(MessageChain)</code></li>
+</ul>
+</li>
+<li><code>QuoteGroupMessageAsync(Task`1)</code>: 回复群消息
+<ul>
+<li><code>group(Group)</code></li>
+<li><code>messageId(String)</code></li>
+<li><code>chain(MessageChain)</code></li>
+</ul>
+</li>
+<li><code>QuoteTempMessageAsync(Task`1)</code>: 回复临时消息
+<ul>
+<li><code>memberId(String)</code></li>
+<li><code>group(String)</code></li>
+<li><code>messageId(String)</code></li>
+<li><code>chain(MessageChain)</code></li>
+</ul>
+</li>
+<li><code>QuoteTempMessageAsync(Task`1)</code>: 回复临时消息
+<ul>
+<li><code>member(Member)</code></li>
+<li><code>messageId(String)</code></li>
+<li><code>chain(MessageChain)</code></li>
+</ul>
+</li>
+<li><code>SendFriendMessageAsync(Task`1)</code>: 发送好友消息
+<ul>
+<li><code>target(String)</code></li>
+<li><code>message(String)</code></li>
+</ul>
+</li>
+<li><code>SendFriendMessageAsync(Task`1)</code>: 发送好友消息
+<ul>
+<li><code>target(Friend)</code></li>
+<li><code>message(String)</code></li>
+</ul>
+</li>
+<li><code>SendTempMessageAsync(Task`1)</code>: 发送临时消息
+<ul>
+<li><code>target(String)</code></li>
+<li><code>group(String)</code></li>
+<li><code>message(String)</code></li>
+</ul>
+</li>
+<li><code>SendTempMessageAsync(Task`1)</code>: 发送临时消息
+<ul>
+<li><code>member(Member)</code></li>
+<li><code>message(String)</code></li>
+</ul>
+</li>
+<li><code>SendGroupMessageAsync(Task`1)</code>: 发送群消息
+<ul>
+<li><code>target(String)</code></li>
+<li><code>message(String)</code></li>
+</ul>
+</li>
+<li><code>SendGroupMessageAsync(Task`1)</code>: 发送群消息
+<ul>
+<li><code>group(Group)</code></li>
+<li><code>message(String)</code></li>
+</ul>
+</li>
+<li><code>QuoteFriendMessageAsync(Task`1)</code>: 引用好友消息
+<ul>
+<li><code>target(String)</code></li>
+<li><code>messageId(String)</code></li>
+<li><code>message(String)</code></li>
+</ul>
+</li>
+<li><code>QuoteFriendMessageAsync(Task`1)</code>: 引用好友消息
+<ul>
+<li><code>target(Friend)</code></li>
+<li><code>messageId(String)</code></li>
+<li><code>message(String)</code></li>
+</ul>
+</li>
+<li><code>QuoteGroupMessageAsync(Task`1)</code>: 引用群消息
+<ul>
+<li><code>target(String)</code></li>
+<li><code>messageId(String)</code></li>
+<li><code>message(String)</code></li>
+</ul>
+</li>
+<li><code>QuoteGroupMessageAsync(Task`1)</code>: 引用群消息
+<ul>
+<li><code>target(Group)</code></li>
+<li><code>messageId(String)</code></li>
+<li><code>message(String)</code></li>
+</ul>
+</li>
+<li><code>QuoteTempMessageAsync(Task`1)</code>: 引用临时消息
+<ul>
+<li><code>memberId(String)</code></li>
+<li><code>group(String)</code></li>
+<li><code>messageId(String)</code></li>
+<li><code>message(String)</code></li>
+</ul>
+</li>
+<li><code>QuoteTempMessageAsync(Task`1)</code>: 引用临时消息
+<ul>
+<li><code>member(Member)</code></li>
+<li><code>messageId(String)</code></li>
+<li><code>message(String)</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="requestmanager"><a class="header" href="#requestmanager"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Sessions/Http/Managers/RequestManager.cs">RequestManager</a></a></h3>
+<h4 id="methods-10"><a class="header" href="#methods-10">Methods</a></h4>
+<ul>
+<li><code>HandleNewFriendRequestedAsync(Task)</code>: 处理好友申请
+<ul>
+<li><code>requestedEvent(NewFriendRequestedEvent)</code></li>
+<li><code>handler(NewFriendRequestHandlers)</code></li>
+<li><code>message(String)</code></li>
+</ul>
+</li>
+<li><code>HandleNewMemberRequestedAsync(Task)</code>: 处理新成员入群申请,需要管理员权限
+<ul>
+<li><code>requestedEvent(NewMemberRequestedEvent)</code></li>
+<li><code>handler(NewMemberRequestHandlers)</code></li>
+<li><code>message(String)</code></li>
+</ul>
+</li>
+<li><code>HandleNewInvitationRequestedAsync(Task)</code>: 处理bot被邀请进群申请
+<ul>
+<li><code>requestedEvent(NewInvitationRequestedEvent)</code></li>
+<li><code>handler(NewInvitationRequestHandlers)</code></li>
+<li><code>message(String)</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="icommandmodule"><a class="header" href="#icommandmodule"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Modules/ICommandModule.cs">ICommandModule</a></a></h3>
+<h4 id="propertys-1"><a class="header" href="#propertys-1">Propertys</a></h4>
+<ul>
+<li><code>IsEnable(Nullable`1)</code></li>
+</ul>
+<h4 id="methods-11"><a class="header" href="#methods-11">Methods</a></h4>
+<ul>
+<li><code>Execute</code>
+<ul>
+<li><code>receiver(MessageReceiverBase)</code></li>
+<li><code>executeMessage(MessageBase)</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="imodule"><a class="header" href="#imodule"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Modules/IModule.cs">IModule</a></a></h3>
+<h4 id="propertys-2"><a class="header" href="#propertys-2">Propertys</a></h4>
+<ul>
+<li><code>IsEnable(Nullable`1)</code></li>
+</ul>
+<h4 id="methods-12"><a class="header" href="#methods-12">Methods</a></h4>
+<ul>
+<li><code>Execute</code>
+<ul>
+<li><code>base(MessageReceiverBase)</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="file"><a class="header" href="#file"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Shared/File.cs">File</a></a></h3>
+<h4 id="constructors-2"><a class="header" href="#constructors-2">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-3"><a class="header" href="#propertys-3">Propertys</a></h4>
+<ul>
+<li><code>Name(String)</code></li>
+<li><code>Id(String)</code></li>
+<li><code>Path(String)</code></li>
+<li><code>Parent(File)</code></li>
+<li><code>IsFile(Boolean)</code></li>
+<li><code>IsDirectory(Boolean)</code></li>
+<li><code>Contact(FileUploader)</code></li>
+<li><code>DownloadInfo(FileDownloadInfo)</code></li>
+</ul>
+<h3 id="friend"><a class="header" href="#friend"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Shared/Friend.cs">Friend</a></a></h3>
+<h4 id="constructors-3"><a class="header" href="#constructors-3">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-4"><a class="header" href="#propertys-4">Propertys</a></h4>
+<ul>
+<li><code>Profile(Profile)</code></li>
+<li><code>Id(String)</code>
+<ul>
+<li>好友的QQ号</li>
+</ul>
+</li>
+<li><code>NickName(String)</code>
+<ul>
+<li>好友的昵称</li>
+</ul>
+</li>
+<li><code>Remark(String)</code>
+<ul>
+<li>你给好友的备注</li>
+</ul>
+</li>
+</ul>
+<h3 id="genders"><a class="header" href="#genders"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Shared/Genders.cs">Genders</a></a></h3>
+<h4 id="fields"><a class="header" href="#fields">Fields</a></h4>
+<ul>
+<li><code>Male(Genders)</code></li>
+<li><code>Female(Genders)</code></li>
+<li><code>Unknown(Genders)</code></li>
+</ul>
+<h3 id="group"><a class="header" href="#group"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Shared/Group.cs">Group</a></a></h3>
+<h4 id="constructors-4"><a class="header" href="#constructors-4">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-5"><a class="header" href="#propertys-5">Propertys</a></h4>
+<ul>
+<li><code>Id(String)</code>
+<ul>
+<li>群号</li>
+</ul>
+</li>
+<li><code>Name(String)</code>
+<ul>
+<li>群名称</li>
+</ul>
+</li>
+<li><code>Permission(Permissions)</code>
+<ul>
+<li>权限类型</li>
+</ul>
+</li>
+</ul>
+<h3 id="groupsetting"><a class="header" href="#groupsetting"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Shared/GroupSetting.cs">GroupSetting</a></a></h3>
+<h4 id="constructors-5"><a class="header" href="#constructors-5">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-6"><a class="header" href="#propertys-6">Propertys</a></h4>
+<ul>
+<li><code>Name(String)</code>
+<ul>
+<li>群名称</li>
+</ul>
+</li>
+<li><code>Announcement(String)</code>
+<ul>
+<li>群公告</li>
+</ul>
+</li>
+<li><code>ConfessTalk(Boolean)</code>
+<ul>
+<li>坦白说</li>
+</ul>
+</li>
+<li><code>AllowMemberInvite(Boolean)</code>
+<ul>
+<li>成员邀请</li>
+</ul>
+</li>
+<li><code>AutoApprove(Boolean)</code>
+<ul>
+<li>自动通过入群申请</li>
+</ul>
+</li>
+<li><code>AnonymousChat(Boolean)</code>
+<ul>
+<li>匿名聊天</li>
+</ul>
+</li>
+</ul>
+<h3 id="imageuploadtargets"><a class="header" href="#imageuploadtargets"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Shared/ImageUploadTargets.cs">ImageUploadTargets</a></a></h3>
+<h4 id="fields-1"><a class="header" href="#fields-1">Fields</a></h4>
+<ul>
+<li><code>Friend(ImageUploadTargets)</code></li>
+<li><code>Group(ImageUploadTargets)</code></li>
+<li><code>Temp(ImageUploadTargets)</code></li>
+</ul>
+<h3 id="member"><a class="header" href="#member"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Shared/Member.cs">Member</a></a></h3>
+<p>群成员</p>
+<h4 id="constructors-6"><a class="header" href="#constructors-6">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-7"><a class="header" href="#propertys-7">Propertys</a></h4>
+<ul>
+<li><code>Profile(Profile)</code></li>
+<li><code>Id(String)</code>
+<ul>
+<li>群员的QQ号</li>
+</ul>
+</li>
+<li><code>Name(String)</code>
+<ul>
+<li>群员的群名片</li>
+</ul>
+</li>
+<li><code>Permission(Permissions)</code>
+<ul>
+<li>操作者在群中的权限</li>
+</ul>
+</li>
+<li><code>SpecialTitle(String)</code>
+<ul>
+<li>操作者的群头衔</li>
+</ul>
+</li>
+<li><code>JoinTime(String)</code>
+<ul>
+<li>加入时间戳</li>
+</ul>
+</li>
+<li><code>LastSpeakTime(String)</code>
+<ul>
+<li>最后发言时间戳</li>
+</ul>
+</li>
+<li><code>MuteTimeRemaining(String)</code>
+<ul>
+<li>禁言时间还剩余</li>
+</ul>
+</li>
+<li><code>Group(Group)</code>
+<ul>
+<li>产生此操作的群</li>
+</ul>
+</li>
+</ul>
+<h3 id="newfriendrequesthandlers"><a class="header" href="#newfriendrequesthandlers"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Shared/NewFriendRequestHandlers.cs">NewFriendRequestHandlers</a></a></h3>
+<h4 id="fields-2"><a class="header" href="#fields-2">Fields</a></h4>
+<ul>
+<li><code>Approve(NewFriendRequestHandlers)</code></li>
+<li><code>Reject(NewFriendRequestHandlers)</code></li>
+<li><code>RejectAndBlock(NewFriendRequestHandlers)</code></li>
+</ul>
+<h3 id="newinvitationrequesthandlers"><a class="header" href="#newinvitationrequesthandlers"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Shared/NewInvitationRequestHandlers.cs">NewInvitationRequestHandlers</a></a></h3>
+<h4 id="fields-3"><a class="header" href="#fields-3">Fields</a></h4>
+<ul>
+<li><code>Approve(NewInvitationRequestHandlers)</code></li>
+<li><code>Reject(NewInvitationRequestHandlers)</code></li>
+</ul>
+<h3 id="newmemberrequesthandlers"><a class="header" href="#newmemberrequesthandlers"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Shared/NewMemberRequestHandlers.cs">NewMemberRequestHandlers</a></a></h3>
+<h4 id="fields-4"><a class="header" href="#fields-4">Fields</a></h4>
+<ul>
+<li><code>Approve(NewMemberRequestHandlers)</code></li>
+<li><code>Reject(NewMemberRequestHandlers)</code></li>
+<li><code>Dismiss(NewMemberRequestHandlers)</code></li>
+<li><code>RejectAndBlock(NewMemberRequestHandlers)</code></li>
+<li><code>DismissAndBlock(NewMemberRequestHandlers)</code></li>
+</ul>
+<h3 id="otherclient"><a class="header" href="#otherclient"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Shared/OtherClient.cs">OtherClient</a></a></h3>
+<h4 id="constructors-7"><a class="header" href="#constructors-7">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-8"><a class="header" href="#propertys-8">Propertys</a></h4>
+<ul>
+<li><code>Id(String)</code></li>
+<li><code>Platform(String)</code></li>
+</ul>
+<h3 id="permissions"><a class="header" href="#permissions"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Shared/Permissions.cs">Permissions</a></a></h3>
+<h4 id="fields-5"><a class="header" href="#fields-5">Fields</a></h4>
+<ul>
+<li><code>Owner(Permissions)</code></li>
+<li><code>Administrator(Permissions)</code></li>
+<li><code>Member(Permissions)</code></li>
+</ul>
+<h3 id="profile"><a class="header" href="#profile"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Shared/Profile.cs">Profile</a></a></h3>
+<h4 id="constructors-8"><a class="header" href="#constructors-8">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-9"><a class="header" href="#propertys-9">Propertys</a></h4>
+<ul>
+<li><code>NickName(String)</code></li>
+<li><code>Email(String)</code></li>
+<li><code>Age(String)</code></li>
+<li><code>Level(String)</code></li>
+<li><code>Signature(String)</code>
+<ul>
+<li>签名</li>
+</ul>
+</li>
+<li><code>Gender(Genders)</code></li>
+</ul>
+<h3 id="commandtriggerattribute"><a class="header" href="#commandtriggerattribute"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Modules/CommandTriggerAttribute.cs">CommandTriggerAttribute</a></a></h3>
+<ul>
+<li>Example: /hello --arg1 value1 value2 --arg2 --arg3
+/: prefixhello : name-- : args separator</li>
+</ul>
+<h4 id="constructors-9"><a class="header" href="#constructors-9">Constructors</a></h4>
+<ul>
+<li>Constructor
+<ul>
+<li><code>name(String)</code></li>
+<li><code>prefix(String)</code></li>
+<li><code>argsSeparator(String)</code></li>
+<li><code>equalName(Boolean)</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="propertys-10"><a class="header" href="#propertys-10">Propertys</a></h4>
+<ul>
+<li><code>Prefix(String)</code></li>
+<li><code>Name(String)</code></li>
+<li><code>ArgsSeparator(String)</code></li>
+<li><code>EqualName(Boolean)</code>
+<ul>
+<li>命令中是否只能包含Name</li>
+</ul>
+</li>
+<li><code>TypeId(Object)</code></li>
+</ul>
+<h3 id="messagebase"><a class="header" href="#messagebase"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/MessageBase.cs">MessageBase</a></a></h3>
+<h4 id="constructors-10"><a class="header" href="#constructors-10">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-11"><a class="header" href="#propertys-11">Propertys</a></h4>
+<ul>
+<li><code>Type(Messages)</code></li>
+</ul>
+<h4 id="methods-13"><a class="header" href="#methods-13">Methods</a></h4>
+<ul>
+<li><code>ToString(String)</code></li>
+</ul>
+<h3 id="messagechain"><a class="header" href="#messagechain"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/MessageChain.cs">MessageChain</a></a></h3>
+<h4 id="constructors-11"><a class="header" href="#constructors-11">Constructors</a></h4>
+<ul>
+<li>Constructor
+<ul>
+<li><code>collection(IEnumerable`1)</code></li>
+</ul>
+</li>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-12"><a class="header" href="#propertys-12">Propertys</a></h4>
+<ul>
+<li><code>Capacity(Int32)</code></li>
+<li><code>Count(Int32)</code></li>
+<li><code>Item(MessageBase)</code></li>
+</ul>
+<h4 id="methods-14"><a class="header" href="#methods-14">Methods</a></h4>
+<ul>
+<li><code>GetPlainMessage(String)</code>: 获取消息链中的纯文本消息</li>
+<li><code>GetSeparatedPlainMessage(List`1)</code>: 获取消息链中的文本消息并且保持原有连贯性</li>
+<li><code>op_Implicit(MessageChain)</code>
+<ul>
+<li><code>messageBase(MessageBase)</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="messagereceiverbase"><a class="header" href="#messagereceiverbase"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/MessageReceiverBase.cs">MessageReceiverBase</a></a></h3>
+<h4 id="constructors-12"><a class="header" href="#constructors-12">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-13"><a class="header" href="#propertys-13">Propertys</a></h4>
+<ul>
+<li><code>Type(MessageReceivers)</code></li>
+<li><code>MessageChain(MessageChain)</code></li>
+</ul>
+<h3 id="messagereceivers"><a class="header" href="#messagereceivers"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/MessageReceivers.cs">MessageReceivers</a></a></h3>
+<h4 id="fields-6"><a class="header" href="#fields-6">Fields</a></h4>
+<ul>
+<li><code>Friend(MessageReceivers)</code></li>
+<li><code>Group(MessageReceivers)</code></li>
+<li><code>Temp(MessageReceivers)</code></li>
+<li><code>Stranger(MessageReceivers)</code></li>
+<li><code>OtherClient(MessageReceivers)</code></li>
+</ul>
+<h3 id="messages"><a class="header" href="#messages"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/Messages.cs">Messages</a></a></h3>
+<h4 id="fields-7"><a class="header" href="#fields-7">Fields</a></h4>
+<ul>
+<li><code>Source(Messages)</code></li>
+<li><code>Quote(Messages)</code></li>
+<li><code>At(Messages)</code></li>
+<li><code>AtAll(Messages)</code></li>
+<li><code>Face(Messages)</code></li>
+<li><code>Plain(Messages)</code></li>
+<li><code>Image(Messages)</code></li>
+<li><code>FlashImage(Messages)</code></li>
+<li><code>Voice(Messages)</code></li>
+<li><code>Xml(Messages)</code></li>
+<li><code>Json(Messages)</code></li>
+<li><code>App(Messages)</code></li>
+<li><code>Poke(Messages)</code></li>
+<li><code>Dice(Messages)</code></li>
+<li><code>MusicShare(Messages)</code></li>
+<li><code>Forward(Messages)</code></li>
+<li><code>File(Messages)</code></li>
+<li><code>MarketFace(Messages)</code></li>
+<li><code>MiraiCode(Messages)</code></li>
+</ul>
+<h3 id="friendmessagereceiver"><a class="header" href="#friendmessagereceiver"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/Receivers/FriendMessageReceiver.cs">FriendMessageReceiver</a></a></h3>
+<h4 id="constructors-13"><a class="header" href="#constructors-13">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-14"><a class="header" href="#propertys-14">Propertys</a></h4>
+<ul>
+<li><code>Type(MessageReceivers)</code></li>
+<li><code>Sender(Friend)</code></li>
+<li><code>Name(String)</code>
+<ul>
+<li>好友昵称</li>
+</ul>
+</li>
+<li><code>Remark(String)</code>
+<ul>
+<li>好友备注</li>
+</ul>
+</li>
+<li><code>Id(String)</code>
+<ul>
+<li>好友QQ号</li>
+</ul>
+</li>
+<li><code>MessageChain(MessageChain)</code></li>
+</ul>
+<h3 id="groupmessagereceiver"><a class="header" href="#groupmessagereceiver"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/Receivers/GroupMessageReceiver.cs">GroupMessageReceiver</a></a></h3>
+<h4 id="constructors-14"><a class="header" href="#constructors-14">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-15"><a class="header" href="#propertys-15">Propertys</a></h4>
+<ul>
+<li><code>Sender(Member)</code></li>
+<li><code>Id(String)</code>
+<ul>
+<li>群号</li>
+</ul>
+</li>
+<li><code>Name(String)</code>
+<ul>
+<li>群名称</li>
+</ul>
+</li>
+<li><code>Permission(Permissions)</code>
+<ul>
+<li>bot在群内的权限</li>
+</ul>
+</li>
+<li><code>Type(MessageReceivers)</code></li>
+<li><code>MessageChain(MessageChain)</code></li>
+</ul>
+<h3 id="otherclientmessagereceiver"><a class="header" href="#otherclientmessagereceiver"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/Receivers/OtherClientMessageReceiver.cs">OtherClientMessageReceiver</a></a></h3>
+<h4 id="constructors-15"><a class="header" href="#constructors-15">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-16"><a class="header" href="#propertys-16">Propertys</a></h4>
+<ul>
+<li><code>Type(MessageReceivers)</code></li>
+<li><code>Sender(OtherClient)</code></li>
+<li><code>MessageChain(MessageChain)</code></li>
+</ul>
+<h3 id="strangermessagereceiver"><a class="header" href="#strangermessagereceiver"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/Receivers/StrangerMessageReceiver.cs">StrangerMessageReceiver</a></a></h3>
+<h4 id="constructors-16"><a class="header" href="#constructors-16">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-17"><a class="header" href="#propertys-17">Propertys</a></h4>
+<ul>
+<li><code>Type(MessageReceivers)</code></li>
+<li><code>Sender(Friend)</code></li>
+<li><code>Name(String)</code>
+<ul>
+<li>昵称</li>
+</ul>
+</li>
+<li><code>Remark(String)</code>
+<ul>
+<li>备注</li>
+</ul>
+</li>
+<li><code>Id(String)</code>
+<ul>
+<li>QQ号</li>
+</ul>
+</li>
+<li><code>MessageChain(MessageChain)</code></li>
+</ul>
+<h3 id="tempmessagereceiver"><a class="header" href="#tempmessagereceiver"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/Receivers/TempMessageReceiver.cs">TempMessageReceiver</a></a></h3>
+<h4 id="constructors-17"><a class="header" href="#constructors-17">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-18"><a class="header" href="#propertys-18">Propertys</a></h4>
+<ul>
+<li><code>Type(MessageReceivers)</code></li>
+<li><code>Sender(Member)</code></li>
+<li><code>Id(String)</code>
+<ul>
+<li>群号</li>
+</ul>
+</li>
+<li><code>Name(String)</code>
+<ul>
+<li>群名称</li>
+</ul>
+</li>
+<li><code>Permission(Permissions)</code>
+<ul>
+<li>bot在群内的权限</li>
+</ul>
+</li>
+<li><code>MessageChain(MessageChain)</code></li>
+</ul>
+<h3 id="appmessage"><a class="header" href="#appmessage"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/Concretes/AppMessage.cs">AppMessage</a></a></h3>
+<h4 id="constructors-18"><a class="header" href="#constructors-18">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-19"><a class="header" href="#propertys-19">Propertys</a></h4>
+<ul>
+<li><code>Type(Messages)</code></li>
+<li><code>Content(String)</code></li>
+</ul>
+<h3 id="atallmessage"><a class="header" href="#atallmessage"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/Concretes/AtAllMessage.cs">AtAllMessage</a></a></h3>
+<h4 id="constructors-19"><a class="header" href="#constructors-19">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-20"><a class="header" href="#propertys-20">Propertys</a></h4>
+<ul>
+<li><code>Type(Messages)</code></li>
+</ul>
+<h3 id="atmessage"><a class="header" href="#atmessage"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/Concretes/AtMessage.cs">AtMessage</a></a></h3>
+<h4 id="constructors-20"><a class="header" href="#constructors-20">Constructors</a></h4>
+<ul>
+<li>Constructor
+<ul>
+<li><code>target(String)</code></li>
+</ul>
+</li>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-21"><a class="header" href="#propertys-21">Propertys</a></h4>
+<ul>
+<li><code>Target(String)</code>
+<ul>
+<li>群员QQ号</li>
+</ul>
+</li>
+<li><code>Display(String)</code>
+<ul>
+<li>At时显示的文字，发送消息时无效，自动使用群名片，默认为空</li>
+</ul>
+</li>
+<li><code>Type(Messages)</code></li>
+</ul>
+<h3 id="dicemessage"><a class="header" href="#dicemessage"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/Concretes/DiceMessage.cs">DiceMessage</a></a></h3>
+<h4 id="constructors-21"><a class="header" href="#constructors-21">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-22"><a class="header" href="#propertys-22">Propertys</a></h4>
+<ul>
+<li><code>Type(Messages)</code></li>
+<li><code>Value(String)</code>
+<ul>
+<li>点数</li>
+</ul>
+</li>
+</ul>
+<h3 id="facemessage"><a class="header" href="#facemessage"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/Concretes/FaceMessage.cs">FaceMessage</a></a></h3>
+<h4 id="constructors-22"><a class="header" href="#constructors-22">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-23"><a class="header" href="#propertys-23">Propertys</a></h4>
+<ul>
+<li><code>FaceId(String)</code>
+<ul>
+<li>QQ表情编号，可选，优先高于name</li>
+</ul>
+</li>
+<li><code>Name(String)</code>
+<ul>
+<li>QQ表情拼音，可选</li>
+</ul>
+</li>
+<li><code>Type(Messages)</code></li>
+</ul>
+<h3 id="filemessage"><a class="header" href="#filemessage"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/Concretes/FileMessage.cs">FileMessage</a></a></h3>
+<h4 id="constructors-23"><a class="header" href="#constructors-23">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-24"><a class="header" href="#propertys-24">Propertys</a></h4>
+<ul>
+<li><code>Type(Messages)</code></li>
+<li><code>FileId(String)</code>
+<ul>
+<li>文件识别id</li>
+</ul>
+</li>
+<li><code>Name(String)</code>
+<ul>
+<li>文件名</li>
+</ul>
+</li>
+<li><code>Size(Int64)</code>
+<ul>
+<li>文件大小</li>
+</ul>
+</li>
+</ul>
+<h3 id="flashimagemessage"><a class="header" href="#flashimagemessage"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/Concretes/FlashImageMessage.cs">FlashImageMessage</a></a></h3>
+<h4 id="constructors-24"><a class="header" href="#constructors-24">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-25"><a class="header" href="#propertys-25">Propertys</a></h4>
+<ul>
+<li><code>Type(Messages)</code></li>
+<li><code>ImageId(String)</code>
+<ul>
+<li>图片的imageId，群图片与好友图片格式不同。不为空时将忽略url属性</li>
+</ul>
+</li>
+<li><code>Url(String)</code>
+<ul>
+<li>图片的URL，发送时可作网络图片的链接；接收时为腾讯图片服务器的链接，可用于图片下载</li>
+</ul>
+</li>
+<li><code>Path(String)</code>
+<ul>
+<li>图片的路径，发送本地图片，相对路径于plugins/MiraiAPIHTTP/images</li>
+</ul>
+</li>
+<li><code>Base64(String)</code>
+<ul>
+<li>图片的 Base64 编码</li>
+</ul>
+</li>
+</ul>
+<h3 id="forwardmessage"><a class="header" href="#forwardmessage"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/Concretes/ForwardMessage.cs">ForwardMessage</a></a></h3>
+<h4 id="constructors-25"><a class="header" href="#constructors-25">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-26"><a class="header" href="#propertys-26">Propertys</a></h4>
+<ul>
+<li><code>Type(Messages)</code></li>
+<li><code>NodeList(IEnumerable`1)</code>
+<ul>
+<li>消息节点</li>
+</ul>
+</li>
+</ul>
+<h3 id="imagemessage"><a class="header" href="#imagemessage"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/Concretes/ImageMessage.cs">ImageMessage</a></a></h3>
+<h4 id="constructors-26"><a class="header" href="#constructors-26">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-27"><a class="header" href="#propertys-27">Propertys</a></h4>
+<ul>
+<li><code>Type(Messages)</code></li>
+<li><code>ImageId(String)</code>
+<ul>
+<li>图片的imageId，群图片与好友图片格式不同。不为空时将忽略url属性</li>
+</ul>
+</li>
+<li><code>Url(String)</code>
+<ul>
+<li>图片的URL，发送时可作网络图片的链接；接收时为腾讯图片服务器的链接，可用于图片下载</li>
+</ul>
+</li>
+<li><code>Path(String)</code>
+<ul>
+<li>图片的路径，发送本地图片，相对路径于plugins/MiraiAPIHTTP/images</li>
+</ul>
+</li>
+<li><code>Base64(String)</code>
+<ul>
+<li>图片的 Base64 编码</li>
+</ul>
+</li>
+</ul>
+<h3 id="jsonmessage"><a class="header" href="#jsonmessage"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/Concretes/JsonMessage.cs">JsonMessage</a></a></h3>
+<h4 id="constructors-27"><a class="header" href="#constructors-27">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-28"><a class="header" href="#propertys-28">Propertys</a></h4>
+<ul>
+<li><code>Json(String)</code></li>
+<li><code>Type(Messages)</code></li>
+</ul>
+<h3 id="marketfacemessage"><a class="header" href="#marketfacemessage"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/Concretes/MarketFaceMessage.cs">MarketFaceMessage</a></a></h3>
+<p>商城表情</p>
+<ul>
+<li>Remarks: 目前商城表情仅支持接收和转发，不支持构造发送</li>
+</ul>
+<h4 id="constructors-28"><a class="header" href="#constructors-28">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-29"><a class="header" href="#propertys-29">Propertys</a></h4>
+<ul>
+<li><code>Type(Messages)</code></li>
+<li><code>Id(String)</code></li>
+<li><code>Name(String)</code></li>
+</ul>
+<h3 id="miraicodemessage"><a class="header" href="#miraicodemessage"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/Concretes/MiraiCodeMessage.cs">MiraiCodeMessage</a></a></h3>
+<h4 id="constructors-29"><a class="header" href="#constructors-29">Constructors</a></h4>
+<ul>
+<li>Constructor
+<ul>
+<li><code>code(String)</code></li>
+</ul>
+</li>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-30"><a class="header" href="#propertys-30">Propertys</a></h4>
+<ul>
+<li><code>Type(Messages)</code></li>
+<li><code>Code(String)</code>
+<ul>
+<li>MiraiCode码，请确保已经转义</li>
+</ul>
+</li>
+</ul>
+<h3 id="musicsharemessage"><a class="header" href="#musicsharemessage"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/Concretes/MusicShareMessage.cs">MusicShareMessage</a></a></h3>
+<h4 id="constructors-30"><a class="header" href="#constructors-30">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-31"><a class="header" href="#propertys-31">Propertys</a></h4>
+<ul>
+<li><code>Type(Messages)</code></li>
+<li><code>Kind(String)</code></li>
+<li><code>Title(String)</code></li>
+<li><code>Summary(String)</code></li>
+<li><code>JumpUrl(String)</code></li>
+<li><code>PictureUrl(String)</code></li>
+<li><code>MusicUrl(String)</code></li>
+<li><code>Brief(String)</code></li>
+</ul>
+<h3 id="plainmessage"><a class="header" href="#plainmessage"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/Concretes/PlainMessage.cs">PlainMessage</a></a></h3>
+<h4 id="constructors-31"><a class="header" href="#constructors-31">Constructors</a></h4>
+<ul>
+<li>Constructor
+<ul>
+<li><code>text(String)</code></li>
+</ul>
+</li>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-32"><a class="header" href="#propertys-32">Propertys</a></h4>
+<ul>
+<li><code>Text(String)</code></li>
+<li><code>Type(Messages)</code></li>
+</ul>
+<h3 id="pokemessage"><a class="header" href="#pokemessage"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/Concretes/PokeMessage.cs">PokeMessage</a></a></h3>
+<h4 id="constructors-32"><a class="header" href="#constructors-32">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-33"><a class="header" href="#propertys-33">Propertys</a></h4>
+<ul>
+<li><code>Name(String)</code>
+<ul>
+<li>&quot;Poke&quot;: 戳一戳
+&quot;ShowLove&quot;: 比心
+&quot;Like&quot;: 点赞
+&quot;Heartbroken&quot;: 心碎
+&quot;SixSixSix&quot;: 666
+&quot;FangDaZhao&quot;: 放大招</li>
+</ul>
+</li>
+<li><code>Type(Messages)</code></li>
+</ul>
+<h3 id="quotemessage"><a class="header" href="#quotemessage"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/Concretes/QuoteMessage.cs">QuoteMessage</a></a></h3>
+<h4 id="constructors-33"><a class="header" href="#constructors-33">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-34"><a class="header" href="#propertys-34">Propertys</a></h4>
+<ul>
+<li><code>Type(Messages)</code></li>
+<li><code>MessageId(String)</code>
+<ul>
+<li>被引用回复的原消息的messageId</li>
+</ul>
+</li>
+<li><code>GroupId(String)</code>
+<ul>
+<li>被引用回复的原消息所接收的群号，当为好友消息时为0</li>
+</ul>
+</li>
+<li><code>SenderId(String)</code>
+<ul>
+<li>被引用回复的原消息的发送者的QQ号</li>
+</ul>
+</li>
+<li><code>TargetId(String)</code>
+<ul>
+<li>被引用回复的原消息的接收者者的QQ号（或群号）</li>
+</ul>
+</li>
+<li><code>Origin(IEnumerable`1)</code>
+<ul>
+<li>被引用回复的原消息的消息链对象</li>
+</ul>
+</li>
+</ul>
+<h3 id="sourcemessage"><a class="header" href="#sourcemessage"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/Concretes/SourceMessage.cs">SourceMessage</a></a></h3>
+<h4 id="constructors-34"><a class="header" href="#constructors-34">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-35"><a class="header" href="#propertys-35">Propertys</a></h4>
+<ul>
+<li><code>MessageId(String)</code>
+<ul>
+<li>消息id</li>
+</ul>
+</li>
+<li><code>Time(String)</code>
+<ul>
+<li>消息发送时间戳</li>
+</ul>
+</li>
+<li><code>Type(Messages)</code></li>
+</ul>
+<h3 id="voicemessage"><a class="header" href="#voicemessage"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/Concretes/VoiceMessage.cs">VoiceMessage</a></a></h3>
+<h4 id="constructors-35"><a class="header" href="#constructors-35">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-36"><a class="header" href="#propertys-36">Propertys</a></h4>
+<ul>
+<li><code>VoiceId(String)</code>
+<ul>
+<li>语音的voiceId，不为空时将忽略url属性</li>
+</ul>
+</li>
+<li><code>Url(String)</code>
+<ul>
+<li>语音的URL，发送时可作网络语音的链接；接收时为腾讯语音服务器的链接，可用于语音下载</li>
+</ul>
+</li>
+<li><code>Path(String)</code>
+<ul>
+<li>语音的路径，发送本地语音，相对路径于plugins/MiraiAPIHTTP/voices</li>
+</ul>
+</li>
+<li><code>Base64(String)</code>
+<ul>
+<li>语音的 Base64 编码</li>
+</ul>
+</li>
+<li><code>Type(Messages)</code></li>
+</ul>
+<h3 id="xmlmessage"><a class="header" href="#xmlmessage"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Messages/Concretes/XmlMessage.cs">XmlMessage</a></a></h3>
+<h4 id="constructors-36"><a class="header" href="#constructors-36">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-37"><a class="header" href="#propertys-37">Propertys</a></h4>
+<ul>
+<li><code>Type(Messages)</code></li>
+<li><code>Xml(String)</code></li>
+</ul>
+<h3 id="invalidaddressexception"><a class="header" href="#invalidaddressexception"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Exceptions/InvalidAddressException.cs">InvalidAddressException</a></a></h3>
+<p>地址错误异常</p>
+<h4 id="constructors-37"><a class="header" href="#constructors-37">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+<li>Constructor
+<ul>
+<li><code>message(String)</code></li>
+</ul>
+</li>
+<li>Constructor
+<ul>
+<li><code>message(String)</code></li>
+<li><code>inner(Exception)</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="propertys-38"><a class="header" href="#propertys-38">Propertys</a></h4>
+<ul>
+<li><code>TargetSite(MethodBase)</code></li>
+<li><code>Message(String)</code></li>
+<li><code>Data(IDictionary)</code></li>
+<li><code>InnerException(Exception)</code></li>
+<li><code>HelpLink(String)</code></li>
+<li><code>Source(String)</code></li>
+<li><code>HResult(Int32)</code></li>
+<li><code>StackTrace(String)</code></li>
+</ul>
+<h3 id="invalidcommandentityexception"><a class="header" href="#invalidcommandentityexception"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Exceptions/InvalidCommandEntityException.cs">InvalidCommandEntityException</a></a></h3>
+<h4 id="constructors-38"><a class="header" href="#constructors-38">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+<li>Constructor
+<ul>
+<li><code>message(String)</code></li>
+</ul>
+</li>
+<li>Constructor
+<ul>
+<li><code>message(String)</code></li>
+<li><code>inner(Exception)</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="propertys-39"><a class="header" href="#propertys-39">Propertys</a></h4>
+<ul>
+<li><code>TargetSite(MethodBase)</code></li>
+<li><code>Message(String)</code></li>
+<li><code>Data(IDictionary)</code></li>
+<li><code>InnerException(Exception)</code></li>
+<li><code>HelpLink(String)</code></li>
+<li><code>Source(String)</code></li>
+<li><code>HResult(Int32)</code></li>
+<li><code>StackTrace(String)</code></li>
+</ul>
+<h3 id="invalidcommandexception"><a class="header" href="#invalidcommandexception"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Exceptions/InvalidCommandException.cs">InvalidCommandException</a></a></h3>
+<h4 id="constructors-39"><a class="header" href="#constructors-39">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+<li>Constructor
+<ul>
+<li><code>message(String)</code></li>
+</ul>
+</li>
+<li>Constructor
+<ul>
+<li><code>message(String)</code></li>
+<li><code>inner(Exception)</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="propertys-40"><a class="header" href="#propertys-40">Propertys</a></h4>
+<ul>
+<li><code>TargetSite(MethodBase)</code></li>
+<li><code>Message(String)</code></li>
+<li><code>Data(IDictionary)</code></li>
+<li><code>InnerException(Exception)</code></li>
+<li><code>HelpLink(String)</code></li>
+<li><code>Source(String)</code></li>
+<li><code>HResult(Int32)</code></li>
+<li><code>StackTrace(String)</code></li>
+</ul>
+<h3 id="invalidqqexception"><a class="header" href="#invalidqqexception"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Exceptions/InvalidQQException.cs">InvalidQQException</a></a></h3>
+<p>错误的QQ号</p>
+<h4 id="constructors-40"><a class="header" href="#constructors-40">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+<li>Constructor
+<ul>
+<li><code>message(String)</code></li>
+</ul>
+</li>
+<li>Constructor
+<ul>
+<li><code>message(String)</code></li>
+<li><code>inner(Exception)</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="propertys-41"><a class="header" href="#propertys-41">Propertys</a></h4>
+<ul>
+<li><code>TargetSite(MethodBase)</code></li>
+<li><code>Message(String)</code></li>
+<li><code>Data(IDictionary)</code></li>
+<li><code>InnerException(Exception)</code></li>
+<li><code>HelpLink(String)</code></li>
+<li><code>Source(String)</code></li>
+<li><code>HResult(Int32)</code></li>
+<li><code>StackTrace(String)</code></li>
+</ul>
+<h3 id="invalidresponseexception"><a class="header" href="#invalidresponseexception"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Exceptions/InvalidResponseException.cs">InvalidResponseException</a></a></h3>
+<h4 id="constructors-41"><a class="header" href="#constructors-41">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+<li>Constructor
+<ul>
+<li><code>message(String)</code></li>
+</ul>
+</li>
+<li>Constructor
+<ul>
+<li><code>message(String)</code></li>
+<li><code>inner(Exception)</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="propertys-42"><a class="header" href="#propertys-42">Propertys</a></h4>
+<ul>
+<li><code>TargetSite(MethodBase)</code></li>
+<li><code>Message(String)</code></li>
+<li><code>Data(IDictionary)</code></li>
+<li><code>InnerException(Exception)</code></li>
+<li><code>HelpLink(String)</code></li>
+<li><code>Source(String)</code></li>
+<li><code>HResult(Int32)</code></li>
+<li><code>StackTrace(String)</code></li>
+</ul>
+<h3 id="eventbase"><a class="header" href="#eventbase"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/EventBase.cs">EventBase</a></a></h3>
+<h4 id="propertys-43"><a class="header" href="#propertys-43">Propertys</a></h4>
+<ul>
+<li><code>Type(Events)</code></li>
+</ul>
+<h4 id="methods-15"><a class="header" href="#methods-15">Methods</a></h4>
+<ul>
+<li><code>ToString(String)</code></li>
+</ul>
+<h3 id="events"><a class="header" href="#events"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Events.cs">Events</a></a></h3>
+<h4 id="fields-8"><a class="header" href="#fields-8">Fields</a></h4>
+<ul>
+<li><code>Online(Events)</code>
+<ul>
+<li>Bot登录成功</li>
+</ul>
+</li>
+<li><code>Offline(Events)</code>
+<ul>
+<li>Bot主动离线</li>
+</ul>
+</li>
+<li><code>OfflineForce(Events)</code>
+<ul>
+<li>Bot被挤下线</li>
+</ul>
+</li>
+<li><code>Dropped(Events)</code>
+<ul>
+<li>Bot被服务器断开或因网络问题而掉线</li>
+</ul>
+</li>
+<li><code>Reconnected(Events)</code>
+<ul>
+<li>Bot主动重新登录</li>
+</ul>
+</li>
+<li><code>FriendInputStatusChanged(Events)</code>
+<ul>
+<li>好友输入状态改变</li>
+</ul>
+</li>
+<li><code>FriendNickChanged(Events)</code>
+<ul>
+<li>好友昵称改变</li>
+</ul>
+</li>
+<li><code>PermissionChanged(Events)</code>
+<ul>
+<li>Bot在群里的权限被改变. 操作人一定是群主</li>
+</ul>
+</li>
+<li><code>Muted(Events)</code>
+<ul>
+<li>Bot被禁言</li>
+</ul>
+</li>
+<li><code>Unmuted(Events)</code>
+<ul>
+<li>Bot被取消禁言</li>
+</ul>
+</li>
+<li><code>Joined(Events)</code>
+<ul>
+<li>Bot加入了一个新群</li>
+</ul>
+</li>
+<li><code>Left(Events)</code>
+<ul>
+<li>Bot主动退出一个群</li>
+</ul>
+</li>
+<li><code>Kicked(Events)</code>
+<ul>
+<li>Bot被踢出一个群</li>
+</ul>
+</li>
+<li><code>GroupMessageRecalled(Events)</code>
+<ul>
+<li>群消息撤回</li>
+</ul>
+</li>
+<li><code>FriendRecalled(Events)</code>
+<ul>
+<li>好友消息撤回</li>
+</ul>
+</li>
+<li><code>GroupNameChanged(Events)</code>
+<ul>
+<li>某个群名改变</li>
+</ul>
+</li>
+<li><code>GroupEntranceAnnouncementChanged(Events)</code>
+<ul>
+<li>某群入群公告改变</li>
+</ul>
+</li>
+<li><code>GroupMutedAll(Events)</code>
+<ul>
+<li>全员禁言</li>
+</ul>
+</li>
+<li><code>GroupAllowedAnonymousChat(Events)</code>
+<ul>
+<li>匿名聊天</li>
+</ul>
+</li>
+<li><code>GroupAllowedConfessTalk(Events)</code>
+<ul>
+<li>坦白说</li>
+</ul>
+</li>
+<li><code>GroupAllowedMemberInvite(Events)</code>
+<ul>
+<li>允许群员邀请好友加群</li>
+</ul>
+</li>
+<li><code>MemberJoined(Events)</code>
+<ul>
+<li>新人入群的事件</li>
+</ul>
+</li>
+<li><code>MemberKicked(Events)</code>
+<ul>
+<li>成员被踢出群（该成员不是Bot）</li>
+</ul>
+</li>
+<li><code>MemberLeft(Events)</code>
+<ul>
+<li>成员主动离群（该成员不是Bot）</li>
+</ul>
+</li>
+<li><code>MemberCardChanged(Events)</code>
+<ul>
+<li>群名片改动</li>
+</ul>
+</li>
+<li><code>MemberTitleChanged(Events)</code>
+<ul>
+<li>群头衔改动（只有群主有操作限权）</li>
+</ul>
+</li>
+<li><code>MemberPermissionChanged(Events)</code>
+<ul>
+<li>成员权限改变的事件（该成员不是Bot）</li>
+</ul>
+</li>
+<li><code>MemberMuted(Events)</code>
+<ul>
+<li>群成员被禁言事件（该成员不是Bot）</li>
+</ul>
+</li>
+<li><code>MemberUnmuted(Events)</code>
+<ul>
+<li>群成员被取消禁言事件（该成员不是Bot）</li>
+</ul>
+</li>
+<li><code>MemberHonorChanged(Events)</code>
+<ul>
+<li>群员称号改变</li>
+</ul>
+</li>
+<li><code>NewFriendRequested(Events)</code>
+<ul>
+<li>添加好友申请</li>
+</ul>
+</li>
+<li><code>NewMemberRequested(Events)</code>
+<ul>
+<li>用户入群申请（Bot需要有管理员权限）</li>
+</ul>
+</li>
+<li><code>NewInvitationRequested(Events)</code>
+<ul>
+<li>Bot被邀请入群申请</li>
+</ul>
+</li>
+<li><code>Nudged(Events)</code>
+<ul>
+<li>戳一戳事件</li>
+</ul>
+</li>
+<li><code>OtherClientOnline(Events)</code></li>
+<li><code>OtherClientOffline(Events)</code></li>
+<li><code>At(Events)</code></li>
+</ul>
+<h3 id="eventtargets"><a class="header" href="#eventtargets"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/EventTargets.cs">EventTargets</a></a></h3>
+<h4 id="fields-9"><a class="header" href="#fields-9">Fields</a></h4>
+<ul>
+<li><code>Bot(EventTargets)</code></li>
+<li><code>Friend(EventTargets)</code></li>
+<li><code>Group(EventTargets)</code></li>
+<li><code>Request(EventTargets)</code></li>
+</ul>
+<h3 id="newfriendrequestedevent"><a class="header" href="#newfriendrequestedevent"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Request/NewFriendRequestedEvent.cs">NewFriendRequestedEvent</a></a></h3>
+<h4 id="constructors-42"><a class="header" href="#constructors-42">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-44"><a class="header" href="#propertys-44">Propertys</a></h4>
+<ul>
+<li><code>Type(Events)</code></li>
+<li><code>EventId(String)</code></li>
+<li><code>FromId(String)</code></li>
+<li><code>GroupId(String)</code></li>
+<li><code>Nick(String)</code></li>
+<li><code>Message(String)</code></li>
+</ul>
+<h3 id="newinvitationrequestedevent"><a class="header" href="#newinvitationrequestedevent"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Request/NewInvitationRequestedEvent.cs">NewInvitationRequestedEvent</a></a></h3>
+<h4 id="constructors-43"><a class="header" href="#constructors-43">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-45"><a class="header" href="#propertys-45">Propertys</a></h4>
+<ul>
+<li><code>Type(Events)</code></li>
+<li><code>EventId(String)</code></li>
+<li><code>FromId(String)</code></li>
+<li><code>GroupId(String)</code></li>
+<li><code>Nick(String)</code></li>
+<li><code>Message(String)</code></li>
+</ul>
+<h3 id="newmemberrequestedevent"><a class="header" href="#newmemberrequestedevent"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Request/NewMemberRequestedEvent.cs">NewMemberRequestedEvent</a></a></h3>
+<h4 id="constructors-44"><a class="header" href="#constructors-44">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-46"><a class="header" href="#propertys-46">Propertys</a></h4>
+<ul>
+<li><code>Type(Events)</code></li>
+<li><code>EventId(String)</code></li>
+<li><code>FromId(String)</code></li>
+<li><code>GroupId(String)</code></li>
+<li><code>Nick(String)</code></li>
+<li><code>Message(String)</code></li>
+</ul>
+<h3 id="requestedeventbase"><a class="header" href="#requestedeventbase"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Request/RequestedEventBase.cs">RequestedEventBase</a></a></h3>
+<h4 id="propertys-47"><a class="header" href="#propertys-47">Propertys</a></h4>
+<ul>
+<li><code>EventId(String)</code></li>
+<li><code>FromId(String)</code></li>
+<li><code>GroupId(String)</code></li>
+<li><code>Nick(String)</code></li>
+<li><code>Message(String)</code></li>
+<li><code>Type(Events)</code></li>
+</ul>
+<h3 id="otherclientofflineevent"><a class="header" href="#otherclientofflineevent"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/OtherClient/OtherClientOfflineEvent.cs">OtherClientOfflineEvent</a></a></h3>
+<h4 id="constructors-45"><a class="header" href="#constructors-45">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-48"><a class="header" href="#propertys-48">Propertys</a></h4>
+<ul>
+<li><code>Type(Events)</code></li>
+<li><code>Client(OtherClient)</code></li>
+</ul>
+<h3 id="otherclientonlineevent"><a class="header" href="#otherclientonlineevent"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/OtherClient/OtherClientOnlineEvent.cs">OtherClientOnlineEvent</a></a></h3>
+<h4 id="constructors-46"><a class="header" href="#constructors-46">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-49"><a class="header" href="#propertys-49">Propertys</a></h4>
+<ul>
+<li><code>Type(Events)</code></li>
+<li><code>Client(OtherClient)</code></li>
+<li><code>Kind(String)</code></li>
+</ul>
+<h3 id="atevent"><a class="header" href="#atevent"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Message/AtEvent.cs">AtEvent</a></a></h3>
+<h4 id="constructors-47"><a class="header" href="#constructors-47">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-50"><a class="header" href="#propertys-50">Propertys</a></h4>
+<ul>
+<li><code>Type(Events)</code></li>
+<li><code>Receiver(GroupMessageReceiver)</code></li>
+</ul>
+<h3 id="nudgeevent"><a class="header" href="#nudgeevent"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Message/NudgeEvent.cs">NudgeEvent</a></a></h3>
+<h4 id="constructors-48"><a class="header" href="#constructors-48">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-51"><a class="header" href="#propertys-51">Propertys</a></h4>
+<ul>
+<li><code>FromId(String)</code></li>
+<li><code>Target(String)</code></li>
+<li><code>Action(String)</code></li>
+<li><code>Suffix(String)</code></li>
+<li><code>Subject(NudgeSubject)</code></li>
+<li><code>Type(Events)</code></li>
+</ul>
+<h3 id="groupallowedanonymouschatevent"><a class="header" href="#groupallowedanonymouschatevent"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Group/GroupAllowedAnonymousChatEvent.cs">GroupAllowedAnonymousChatEvent</a></a></h3>
+<h4 id="constructors-49"><a class="header" href="#constructors-49">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-52"><a class="header" href="#propertys-52">Propertys</a></h4>
+<ul>
+<li><code>Type(Events)</code></li>
+<li><code>Origin(Boolean)</code>
+<ul>
+<li>原来的</li>
+</ul>
+</li>
+<li><code>Current(Boolean)</code>
+<ul>
+<li>目前的</li>
+</ul>
+</li>
+<li><code>Group(Group)</code>
+<ul>
+<li>产生此事件的群</li>
+</ul>
+</li>
+<li><code>Operator(Member)</code>
+<ul>
+<li>操作者</li>
+</ul>
+</li>
+</ul>
+<h3 id="groupallowedconfesstalkchanged"><a class="header" href="#groupallowedconfesstalkchanged"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Group/GroupAllowedConfessTalkChanged.cs">GroupAllowedConfessTalkChanged</a></a></h3>
+<h4 id="constructors-50"><a class="header" href="#constructors-50">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-53"><a class="header" href="#propertys-53">Propertys</a></h4>
+<ul>
+<li><code>Type(Events)</code></li>
+<li><code>Origin(Boolean)</code>
+<ul>
+<li>原来的</li>
+</ul>
+</li>
+<li><code>Current(Boolean)</code>
+<ul>
+<li>目前的</li>
+</ul>
+</li>
+<li><code>Group(Group)</code>
+<ul>
+<li>产生此事件的群</li>
+</ul>
+</li>
+<li><code>Operator(Member)</code>
+<ul>
+<li>操作者</li>
+</ul>
+</li>
+</ul>
+<h3 id="groupallowedmemberinviteevent"><a class="header" href="#groupallowedmemberinviteevent"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Group/GroupAllowedMemberInviteEvent.cs">GroupAllowedMemberInviteEvent</a></a></h3>
+<h4 id="constructors-51"><a class="header" href="#constructors-51">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-54"><a class="header" href="#propertys-54">Propertys</a></h4>
+<ul>
+<li><code>Type(Events)</code></li>
+<li><code>Origin(Boolean)</code>
+<ul>
+<li>原来的</li>
+</ul>
+</li>
+<li><code>Current(Boolean)</code>
+<ul>
+<li>目前的</li>
+</ul>
+</li>
+<li><code>Group(Group)</code>
+<ul>
+<li>产生此事件的群</li>
+</ul>
+</li>
+<li><code>Operator(Member)</code>
+<ul>
+<li>操作者</li>
+</ul>
+</li>
+</ul>
+<h3 id="groupentranceannouncementchangedevent"><a class="header" href="#groupentranceannouncementchangedevent"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Group/GroupEntranceAnnouncementChangedEvent.cs">GroupEntranceAnnouncementChangedEvent</a></a></h3>
+<h4 id="constructors-52"><a class="header" href="#constructors-52">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-55"><a class="header" href="#propertys-55">Propertys</a></h4>
+<ul>
+<li><code>Type(Events)</code></li>
+<li><code>Origin(String)</code>
+<ul>
+<li>原来的</li>
+</ul>
+</li>
+<li><code>Current(String)</code>
+<ul>
+<li>目前的</li>
+</ul>
+</li>
+<li><code>Group(Group)</code>
+<ul>
+<li>产生此事件的群</li>
+</ul>
+</li>
+<li><code>Operator(Member)</code>
+<ul>
+<li>操作者</li>
+</ul>
+</li>
+</ul>
+<h3 id="groupmembersettingchangedeventbase1"><a class="header" href="#groupmembersettingchangedeventbase1"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Group/GroupMemberSettingChangedEventBase.cs">GroupMemberSettingChangedEventBase`1</a></a></h3>
+<h4 id="propertys-56"><a class="header" href="#propertys-56">Propertys</a></h4>
+<ul>
+<li><code>Origin(T)</code></li>
+<li><code>Current(T)</code></li>
+<li><code>Group(Group)</code>
+<ul>
+<li>产生此事件的群</li>
+</ul>
+</li>
+<li><code>Member(Member)</code>
+<ul>
+<li>操作者</li>
+</ul>
+</li>
+<li><code>Type(Events)</code></li>
+</ul>
+<h3 id="groupmessagerecalledevent"><a class="header" href="#groupmessagerecalledevent"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Group/GroupMessageRecalledEvent.cs">GroupMessageRecalledEvent</a></a></h3>
+<h4 id="constructors-53"><a class="header" href="#constructors-53">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-57"><a class="header" href="#propertys-57">Propertys</a></h4>
+<ul>
+<li><code>Type(Events)</code></li>
+<li><code>AuthorId(String)</code>
+<ul>
+<li>原消息发送者的QQ号</li>
+</ul>
+</li>
+<li><code>MessageId(String)</code>
+<ul>
+<li>消息id</li>
+</ul>
+</li>
+<li><code>Time(String)</code>
+<ul>
+<li>撤回时间戳</li>
+</ul>
+</li>
+<li><code>Group(Group)</code>
+<ul>
+<li>产生此事件的群</li>
+</ul>
+</li>
+<li><code>Operator(Member)</code>
+<ul>
+<li>操作者</li>
+</ul>
+</li>
+</ul>
+<h3 id="groupmutedallevent"><a class="header" href="#groupmutedallevent"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Group/GroupMutedAllEvent.cs">GroupMutedAllEvent</a></a></h3>
+<h4 id="constructors-54"><a class="header" href="#constructors-54">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-58"><a class="header" href="#propertys-58">Propertys</a></h4>
+<ul>
+<li><code>Type(Events)</code></li>
+<li><code>Origin(Boolean)</code>
+<ul>
+<li>原来的</li>
+</ul>
+</li>
+<li><code>Current(Boolean)</code>
+<ul>
+<li>目前的</li>
+</ul>
+</li>
+<li><code>Group(Group)</code>
+<ul>
+<li>产生此事件的群</li>
+</ul>
+</li>
+<li><code>Operator(Member)</code>
+<ul>
+<li>操作者</li>
+</ul>
+</li>
+</ul>
+<h3 id="groupnamechangedevent"><a class="header" href="#groupnamechangedevent"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Group/GroupNameChangedEvent.cs">GroupNameChangedEvent</a></a></h3>
+<h4 id="constructors-55"><a class="header" href="#constructors-55">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-59"><a class="header" href="#propertys-59">Propertys</a></h4>
+<ul>
+<li><code>Type(Events)</code></li>
+<li><code>Origin(String)</code>
+<ul>
+<li>原来的</li>
+</ul>
+</li>
+<li><code>Current(String)</code>
+<ul>
+<li>目前的</li>
+</ul>
+</li>
+<li><code>Group(Group)</code>
+<ul>
+<li>产生此事件的群</li>
+</ul>
+</li>
+<li><code>Operator(Member)</code>
+<ul>
+<li>操作者</li>
+</ul>
+</li>
+</ul>
+<h3 id="groupsettingchangedeventbase1"><a class="header" href="#groupsettingchangedeventbase1"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Group/GroupSettingChangedEventBase.cs">GroupSettingChangedEventBase`1</a></a></h3>
+<h4 id="propertys-60"><a class="header" href="#propertys-60">Propertys</a></h4>
+<ul>
+<li><code>Origin(T)</code>
+<ul>
+<li>原来的</li>
+</ul>
+</li>
+<li><code>Current(T)</code>
+<ul>
+<li>目前的</li>
+</ul>
+</li>
+<li><code>Group(Group)</code>
+<ul>
+<li>产生此事件的群</li>
+</ul>
+</li>
+<li><code>Operator(Member)</code>
+<ul>
+<li>操作者</li>
+</ul>
+</li>
+<li><code>Type(Events)</code></li>
+</ul>
+<h3 id="joinedevent"><a class="header" href="#joinedevent"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Group/JoinedEvent.cs">JoinedEvent</a></a></h3>
+<h4 id="constructors-56"><a class="header" href="#constructors-56">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-61"><a class="header" href="#propertys-61">Propertys</a></h4>
+<ul>
+<li><code>Type(Events)</code></li>
+<li><code>Group(Group)</code>
+<ul>
+<li>加入的新群信息</li>
+</ul>
+</li>
+</ul>
+<h3 id="kickedevent"><a class="header" href="#kickedevent"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Group/KickedEvent.cs">KickedEvent</a></a></h3>
+<h4 id="constructors-57"><a class="header" href="#constructors-57">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-62"><a class="header" href="#propertys-62">Propertys</a></h4>
+<ul>
+<li><code>Type(Events)</code></li>
+<li><code>Group(Group)</code>
+<ul>
+<li>bot被踢的群信息</li>
+</ul>
+</li>
+</ul>
+<h3 id="leftevent"><a class="header" href="#leftevent"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Group/LeftEvent.cs">LeftEvent</a></a></h3>
+<h4 id="constructors-58"><a class="header" href="#constructors-58">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-63"><a class="header" href="#propertys-63">Propertys</a></h4>
+<ul>
+<li><code>Type(Events)</code></li>
+<li><code>Group(Group)</code>
+<ul>
+<li>退出的群信息</li>
+</ul>
+</li>
+</ul>
+<h3 id="membercardchangedevent"><a class="header" href="#membercardchangedevent"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Group/MemberCardChangedEvent.cs">MemberCardChangedEvent</a></a></h3>
+<h4 id="constructors-59"><a class="header" href="#constructors-59">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-64"><a class="header" href="#propertys-64">Propertys</a></h4>
+<ul>
+<li><code>Type(Events)</code></li>
+<li><code>Origin(String)</code></li>
+<li><code>Current(String)</code></li>
+<li><code>Group(Group)</code>
+<ul>
+<li>产生此事件的群</li>
+</ul>
+</li>
+<li><code>Member(Member)</code>
+<ul>
+<li>操作者</li>
+</ul>
+</li>
+</ul>
+<h3 id="memberhonorchangedevent"><a class="header" href="#memberhonorchangedevent"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Group/MemberHonorChangedEvent.cs">MemberHonorChangedEvent</a></a></h3>
+<h4 id="constructors-60"><a class="header" href="#constructors-60">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-65"><a class="header" href="#propertys-65">Propertys</a></h4>
+<ul>
+<li><code>Type(Events)</code></li>
+<li><code>Member(Member)</code></li>
+<li><code>Action(MemberHonorAction)</code>
+<ul>
+<li>获得还是失去称号</li>
+</ul>
+</li>
+<li><code>Honor(String)</code>
+<ul>
+<li>称号名称</li>
+</ul>
+</li>
+</ul>
+<h3 id="memberjoinedevent"><a class="header" href="#memberjoinedevent"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Group/MemberJoinedEvent.cs">MemberJoinedEvent</a></a></h3>
+<h4 id="constructors-61"><a class="header" href="#constructors-61">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-66"><a class="header" href="#propertys-66">Propertys</a></h4>
+<ul>
+<li><code>Type(Events)</code></li>
+<li><code>Member(Member)</code></li>
+</ul>
+<h3 id="memberkickedevent"><a class="header" href="#memberkickedevent"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Group/MemberKickedEvent.cs">MemberKickedEvent</a></a></h3>
+<h4 id="constructors-62"><a class="header" href="#constructors-62">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-67"><a class="header" href="#propertys-67">Propertys</a></h4>
+<ul>
+<li><code>Type(Events)</code></li>
+<li><code>Member(Member)</code></li>
+<li><code>Operator(Member)</code></li>
+</ul>
+<h3 id="memberleftevent"><a class="header" href="#memberleftevent"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Group/MemberLeftEvent.cs">MemberLeftEvent</a></a></h3>
+<h4 id="constructors-63"><a class="header" href="#constructors-63">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-68"><a class="header" href="#propertys-68">Propertys</a></h4>
+<ul>
+<li><code>Type(Events)</code></li>
+<li><code>Member(Member)</code></li>
+</ul>
+<h3 id="membermutedevent"><a class="header" href="#membermutedevent"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Group/MemberMutedEvent.cs">MemberMutedEvent</a></a></h3>
+<h4 id="constructors-64"><a class="header" href="#constructors-64">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-69"><a class="header" href="#propertys-69">Propertys</a></h4>
+<ul>
+<li><code>Type(Events)</code></li>
+<li><code>Period(String)</code></li>
+<li><code>Member(Member)</code></li>
+<li><code>Operator(Member)</code></li>
+</ul>
+<h3 id="memberpermissionchangedevent"><a class="header" href="#memberpermissionchangedevent"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Group/MemberPermissionChangedEvent.cs">MemberPermissionChangedEvent</a></a></h3>
+<h4 id="constructors-65"><a class="header" href="#constructors-65">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-70"><a class="header" href="#propertys-70">Propertys</a></h4>
+<ul>
+<li><code>Type(Events)</code></li>
+<li><code>Origin(Permissions)</code></li>
+<li><code>Current(Permissions)</code></li>
+<li><code>Group(Group)</code>
+<ul>
+<li>产生此事件的群</li>
+</ul>
+</li>
+<li><code>Member(Member)</code>
+<ul>
+<li>操作者</li>
+</ul>
+</li>
+</ul>
+<h3 id="membertitlechangedevent"><a class="header" href="#membertitlechangedevent"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Group/MemberTitleChangedEvent.cs">MemberTitleChangedEvent</a></a></h3>
+<h4 id="constructors-66"><a class="header" href="#constructors-66">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-71"><a class="header" href="#propertys-71">Propertys</a></h4>
+<ul>
+<li><code>Type(Events)</code></li>
+<li><code>Origin(String)</code></li>
+<li><code>Current(String)</code></li>
+<li><code>Group(Group)</code>
+<ul>
+<li>产生此事件的群</li>
+</ul>
+</li>
+<li><code>Member(Member)</code>
+<ul>
+<li>操作者</li>
+</ul>
+</li>
+</ul>
+<h3 id="memberunmutedevent"><a class="header" href="#memberunmutedevent"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Group/MemberUnmutedEvent.cs">MemberUnmutedEvent</a></a></h3>
+<h4 id="constructors-67"><a class="header" href="#constructors-67">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-72"><a class="header" href="#propertys-72">Propertys</a></h4>
+<ul>
+<li><code>Type(Events)</code></li>
+<li><code>Member(Member)</code></li>
+<li><code>Operator(Member)</code></li>
+</ul>
+<h3 id="mutedevent"><a class="header" href="#mutedevent"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Group/MutedEvent.cs">MutedEvent</a></a></h3>
+<h4 id="constructors-68"><a class="header" href="#constructors-68">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-73"><a class="header" href="#propertys-73">Propertys</a></h4>
+<ul>
+<li><code>Type(Events)</code></li>
+<li><code>Period(String)</code>
+<ul>
+<li>被禁言的时间，单位：秒</li>
+</ul>
+</li>
+<li><code>Operator(Member)</code>
+<ul>
+<li>禁言bot的操作者</li>
+</ul>
+</li>
+</ul>
+<h3 id="permissionchangedevent"><a class="header" href="#permissionchangedevent"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Group/PermissionChangedEvent.cs">PermissionChangedEvent</a></a></h3>
+<h4 id="constructors-69"><a class="header" href="#constructors-69">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-74"><a class="header" href="#propertys-74">Propertys</a></h4>
+<ul>
+<li><code>Type(Events)</code></li>
+<li><code>Origin(Permissions)</code></li>
+<li><code>Current(Permissions)</code></li>
+<li><code>Group(Group)</code></li>
+</ul>
+<h3 id="unmutedevent"><a class="header" href="#unmutedevent"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Group/UnmutedEvent.cs">UnmutedEvent</a></a></h3>
+<h4 id="constructors-70"><a class="header" href="#constructors-70">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-75"><a class="header" href="#propertys-75">Propertys</a></h4>
+<ul>
+<li><code>Type(Events)</code></li>
+<li><code>Operator(Member)</code>
+<ul>
+<li>取消禁言bot的操作者</li>
+</ul>
+</li>
+</ul>
+<h3 id="friendinputstatuschangedevent"><a class="header" href="#friendinputstatuschangedevent"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Friend/FriendInputStatusChangedEvent.cs">FriendInputStatusChangedEvent</a></a></h3>
+<h4 id="constructors-71"><a class="header" href="#constructors-71">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-76"><a class="header" href="#propertys-76">Propertys</a></h4>
+<ul>
+<li><code>Type(Events)</code></li>
+<li><code>Inputting(Boolean)</code>
+<ul>
+<li>当前输出状态是否正在输入</li>
+</ul>
+</li>
+<li><code>Friend(Friend)</code>
+<ul>
+<li>发出此事件的好友</li>
+</ul>
+</li>
+</ul>
+<h3 id="friendnickchangedevent"><a class="header" href="#friendnickchangedevent"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Friend/FriendNickChangedEvent.cs">FriendNickChangedEvent</a></a></h3>
+<h4 id="constructors-72"><a class="header" href="#constructors-72">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-77"><a class="header" href="#propertys-77">Propertys</a></h4>
+<ul>
+<li><code>Type(Events)</code></li>
+<li><code>Friend(Friend)</code>
+<ul>
+<li>发出此事件的好友</li>
+</ul>
+</li>
+<li><code>Origin(String)</code>
+<ul>
+<li>原昵称</li>
+</ul>
+</li>
+<li><code>New(String)</code>
+<ul>
+<li>新昵称</li>
+</ul>
+</li>
+</ul>
+<h3 id="friendrecalledevent"><a class="header" href="#friendrecalledevent"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Friend/FriendRecalledEvent.cs">FriendRecalledEvent</a></a></h3>
+<h4 id="constructors-73"><a class="header" href="#constructors-73">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-78"><a class="header" href="#propertys-78">Propertys</a></h4>
+<ul>
+<li><code>Type(Events)</code></li>
+<li><code>AuthorId(String)</code>
+<ul>
+<li>原消息发送者的QQ号</li>
+</ul>
+</li>
+<li><code>MessageId(String)</code>
+<ul>
+<li>原消息messageId</li>
+</ul>
+</li>
+<li><code>Time(String)</code>
+<ul>
+<li>原消息发送时间戳</li>
+</ul>
+</li>
+<li><code>Operator(String)</code>
+<ul>
+<li>好友QQ号或BotQQ号</li>
+</ul>
+</li>
+</ul>
+<h3 id="droppedevent"><a class="header" href="#droppedevent"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Bot/DroppedEvent.cs">DroppedEvent</a></a></h3>
+<h4 id="constructors-74"><a class="header" href="#constructors-74">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-79"><a class="header" href="#propertys-79">Propertys</a></h4>
+<ul>
+<li><code>QQ(String)</code></li>
+<li><code>Type(Events)</code></li>
+</ul>
+<h3 id="offlineevent"><a class="header" href="#offlineevent"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Bot/OfflineEvent.cs">OfflineEvent</a></a></h3>
+<p>Bot自身事件</p>
+<h4 id="constructors-75"><a class="header" href="#constructors-75">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-80"><a class="header" href="#propertys-80">Propertys</a></h4>
+<ul>
+<li><code>QQ(String)</code></li>
+<li><code>Type(Events)</code></li>
+</ul>
+<h3 id="offlineforceevent"><a class="header" href="#offlineforceevent"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Bot/OfflineForceEvent.cs">OfflineForceEvent</a></a></h3>
+<h4 id="constructors-76"><a class="header" href="#constructors-76">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-81"><a class="header" href="#propertys-81">Propertys</a></h4>
+<ul>
+<li><code>QQ(String)</code></li>
+<li><code>Type(Events)</code></li>
+</ul>
+<h3 id="onlineevent"><a class="header" href="#onlineevent"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Bot/OnlineEvent.cs">OnlineEvent</a></a></h3>
+<p>Bot自身事件</p>
+<h4 id="constructors-77"><a class="header" href="#constructors-77">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-82"><a class="header" href="#propertys-82">Propertys</a></h4>
+<ul>
+<li><code>QQ(String)</code></li>
+<li><code>Type(Events)</code></li>
+</ul>
+<h3 id="reconnectedevent"><a class="header" href="#reconnectedevent"><a href="https://github.com/SinoAHpx/Mirai.Net/tree/2.4/Mirai.Net/Net/Data/Events/Concretes/Bot/ReconnectedEvent.cs">ReconnectedEvent</a></a></h3>
+<h4 id="constructors-78"><a class="header" href="#constructors-78">Constructors</a></h4>
+<ul>
+<li>Constructor</li>
+</ul>
+<h4 id="propertys-83"><a class="header" href="#propertys-83">Propertys</a></h4>
+<ul>
+<li><code>QQ(String)</code></li>
+<li><code>Type(Events)</code></li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="faq.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="faq.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>
