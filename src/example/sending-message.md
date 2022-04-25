@@ -1,6 +1,6 @@
 # 发送消息
 
-**此篇文档基于Mirai.NET 2.3.9编写**
+
 
 Mirai.Net发送和接收消息遵循了mirai-api-http的消息格式，你可以在[官方文档](https://docs.mirai.mamoe.net/mirai-api-http/api/MessageType.html)中知道具体有什么消息以及这些消息是做什么的，因为Mirai.Net对消息的定义与官方文档中提供的基本一样，所以这篇文章将不会再列出所有的消息类型。
 

@@ -1,7 +1,5 @@
 # 订阅事件
 
-**此篇文档基于Mirai.NET 2.3.9编写**
-
 在Mirai.Net内部，定义了一系列的事件来对消息、群、好友、群成员以及Bot的行为进行监听。
 
 这份文档不会详细地给出每一个事件的成员列表，因为每一个事件的名字都代表了它的作用，如果你想了解某个事件的详细信息，请参考它的[文档](https://docs.mirai.mamoe.net/mirai-api-http/api/EventType.html)。

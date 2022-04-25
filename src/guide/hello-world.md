@@ -26,10 +26,10 @@ using var bot = new MiraiBot
 创建完`MiraiBot`对象，就可以调用`Launch`方法来启动了:
 
 ```cs
-await bot.Launch();
+await bot.LaunchAsync();
 ```
 
-注意，调用`Launch`方法并不会阻塞线程，所以如果你不想要你的程序马上退出的话，你应该自己阻塞线程。
+注意，调用`LaunchAsync`方法并不会阻塞线程，所以如果你不想要你的程序马上退出的话，你应该自己阻塞线程。
 
 使用死循环:
 

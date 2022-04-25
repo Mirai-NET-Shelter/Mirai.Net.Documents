@@ -1,19 +1,8 @@
-# Mirai.NET 2.3.9 文档
+# Mirai.Net 2.4.0
 
-## 前言
-
-欢迎来到Mirai.NET的文档，此文档基于[mdbook](https://rust-lang.github.io/mdBook/)构建，如果你仍觉得Mirai.NET的文档不够完善，欢迎到[主仓库](https://github.com/SinoAHpx/Mirai.Net/issues)提交issue，或者[加入QQ交流群](https://jq.qq.com/?_wv=1027&k=zGzQ5zZm)提问。
-
-**此页面与GitHub仓库上的README完全相同，如果你已经看过，请直接阅读下一个页面。**
-
-**本文档所有的代码都遵循[WTFPL](http://www.wtfpl.net/)协议**
-
-## 贡献文档
-
-+ Fork[文档仓库](https://github.com/SinoAHpx/Mirai.Net.Documents)
-+ 克隆你fork的仓库的默认分支
-+ 安装和配置[mdbook](https://rust-lang.github.io/mdBook/) （不用担心，这很简单）
-+ 向[文档仓库](https://github.com/SinoAHpx/Mirai.Net.Documents)提交Pull Request
+Mirai.Net 是基于[mirai-api-http]实现的轻量级[mirai]社区 sdk。 此项目遵循
+[AGPL-3.0 LICENSE](https://github.com/AHpxChina/Mirai.Net/blob/master/LICENSE)
+开源。
 
 ## 速览
 
@@ -142,7 +131,7 @@ using Mirai.Net.Sessions;
 using var bot = new MiraiBot
 {
     Address = "localhost:8080",
-    QQ = xx,
+    QQ = "xx",
     VerifyKey = "xx"
 };
 ```
@@ -185,13 +174,13 @@ bot.EventReceived
 发送消息的方法有两个参数: 发送到哪里和发送什么。所以第一个参数就是发消息的群号，第二个参数就是要发送的消息链(或者字符串)。
 
 ```cs
-await manager.SendGroupMessageAsync("xx", "Hello, World");
+await MessageManager.SendGroupMessageAsync("xx", "Hello, World");
 ```
 
 或者:
 
 ```cs
-await manager.SendGroupMessageAsync("xx", new MessageChainBuilder().Plain("Hello, ").At("xx").Build());
+await MessageManager.SendGroupMessageAsync("xx", new MessageChainBuilder().Plain("Hello, ").At("xx").Build());
 ```
 
 ## 贡献
