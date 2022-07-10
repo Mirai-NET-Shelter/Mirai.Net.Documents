@@ -11,4 +11,3 @@
     - [处理各种请求](/handle-various-requests.md)
     - [延迟发送/撤回消息](/delay-send-and-recall.md)
 - [常见问题解答](./faq.md)
-- [Test](/test.md)
