@@ -11,7 +11,7 @@ bot.MessageReceived
     .OfType<GroupMessageReceiver>()
     .Subscribe(x =>
     {
-        Console.WriteLine($"收到了来自群{x.Id}由{x.Sender.Id}发送的消息：{x.MessageChain.GetPlainMessage()}");
+        Console.WriteLine($"收到了来自群{x.GroupId}由{x.Sender.Id}发送的消息：{x.MessageChain.GetPlainMessage()}");
     });
 
 ```
@@ -24,7 +24,7 @@ bot.MessageReceived
     .OfType<FriendMessageReceiver>()
     .Subscribe(x =>
     {
-        Console.WriteLine($"收到了来自好友{x.Id}发送的消息：{x.MessageChain.GetPlainMessage()}");
+        Console.WriteLine($"收到了来自好友{x.FriendId}发送的消息：{x.MessageChain.GetPlainMessage()}");
     });
 
 ```
@@ -72,21 +72,21 @@ namespace Mirai.Net.Examples
                 .OfType<GroupMessageReceiver>()
                 .Subscribe(x =>
                 {
-                    Console.WriteLine($"收到了来自群{x.Id}由{x.Sender.Id}发送的消息：{x.MessageChain.GetPlainMessage()}");
+                    Console.WriteLine($"收到了来自群{x.GroupId}由{x.Sender.Id}发送的消息：{x.MessageChain.GetPlainMessage()}");
                 });
 
             bot.MessageReceived
                 .OfType<FriendMessageReceiver>()
                 .Subscribe(x =>
                 {
-                    Console.WriteLine($"收到了来自好友{x.Id}发送的消息：{x.MessageChain.GetPlainMessage()}");
+                    Console.WriteLine($"收到了来自好友{x.FriendId}发送的消息：{x.MessageChain.GetPlainMessage()}");
                 });
-            
+
             bot.MessageReceived
                 .OfType<StrangerMessageReceiver>()
                 .Subscribe(x =>
                 {
-                    Console.WriteLine($"收到了来自陌生人{x.Id}发送的消息：{x.MessageChain.GetPlainMessage()}");
+                    Console.WriteLine($"收到了来自陌生人{x.StrangerId}发送的消息：{x.MessageChain.GetPlainMessage()}");
                 });
 
             Console.ReadLine();
