@@ -118,3 +118,12 @@ bot.MessageReceived
 ```
 
 别的消息容器亦是如此。
+
+你还可以直接省略`OfType<xxx>`而直接使用拓展方法：
+
+```cs
+bot.MessageReceived.SubscribeGroupMessageAsync(async t =>
+{
+    await t.SendMessageAsync("Hi!");
+});
+```
