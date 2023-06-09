@@ -117,8 +117,6 @@ ForwardMessage表示合并转发所产生的消息集合。
 - 静态方法`FromChains(string id, string name, IEnumerable<MessageChain> chains)`，传入QQ号、显示名称与消息链集合以此快速构建单个人的转发消息
 
 - 成员记录`ForwardDisplay`，与`Display`属性配合使用
-    - 构造函数`ForwardDisplay(string title = default, string brief = default, string source = default, IEnumerable<string> preview = default, string summary = default)`，可以在实例化的时候选择部分参数传入
-
     - 字符串属性`Title`，表示标题，不填默认为`群聊的聊天记录`
 
     - 字符串属性`Brief`，表示在未进入聊天界面时所产生的消息提示，即在QQ主页面与非QQ页面所产生的纯文本消息提示，不填默认为`\[聊天记录\]`
