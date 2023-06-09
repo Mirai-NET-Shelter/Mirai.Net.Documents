@@ -127,3 +127,5 @@ bot.MessageReceived.SubscribeGroupMessageAsync(async t =>
     await t.SendMessageAsync("Hi!");
 });
 ```
+
+关于常见的消息类型，详见[常见消息类型](/all-message.md)

@@ -70,3 +70,5 @@ var forward = ForwardMessage.FromChains("xxx", "I'm not a bot", new[]
 ```
 
 只需要提供发送转发消息的主体，以及一系列的消息链即可。
+
+ForwardMessage的具体内容详见[ForwardMessage](/all-message.md#forwardmessage-转发消息)
