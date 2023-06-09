@@ -19,3 +19,5 @@
 
 - 提交[Issue](https://github.com/SinoAHpx/Mirai.Net.Documents/issues)
 - 提交[Pull Request](https://github.com/SinoAHpx/Mirai.Net.Documents/pulls)
+
+**目前这份文档的最高支持版本为2.4.9**
