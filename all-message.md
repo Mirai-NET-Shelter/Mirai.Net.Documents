@@ -1,6 +1,6 @@
-# 所有消息类型
+# 常见消息类型
 
-本文列出Mirai.Net支持的所有消息类型，它们全部位于`Mirai.Net.Data.Messages.Concretes`命名空间下：
+本文列出Mirai.Net支持的常见消息类型，所有消息类型都位于`Mirai.Net.Data.Messages.Concretes`命名空间下：
 
 ## MessageBase 消息基类
 
