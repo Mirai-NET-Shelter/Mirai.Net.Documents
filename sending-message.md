@@ -128,4 +128,4 @@ bot.MessageReceived.SubscribeGroupMessageAsync(async t =>
 });
 ```
 
-关于常见的消息类型，详见[常见消息类型](/all-message.md)
+关于常见的消息类型，详见[全部消息类型](/all-message.md)
