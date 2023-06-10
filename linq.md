@@ -50,7 +50,7 @@ var result = list
 
 ## LINQ的具体使用
 
-支持LINQ的类型需要实现`IEnumerable`接口，而其实LINQ的绝大部分方法基于该接口的泛型版本`IEnumerable<T>`，为`IEnumerable`的子接口，`T`表示元素类型。
+支持LINQ的类型需要实现`IEnumerable<T>`接口，`T`表示元素类型。
 
 LINQ的链式表达式使用一系列方法处理集合，每个方法的返回值为处理后的集合 _（即`IEnumerable<T>`引用，听不懂的话就认为返回的对象一定实现了`IEnumerable<T>`接口就行了）_，所以可以一个方法接着一个方法。
 
