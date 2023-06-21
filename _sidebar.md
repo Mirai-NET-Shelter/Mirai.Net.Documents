@@ -11,6 +11,7 @@
     - [发送转发消息](./sending-forward-message.md)
     - [处理好友申请等](/handle-various-requests.md)
     - [延迟发送/撤回消息](/delay-send-and-recall.md)
-    - [常用消息类型](/all-message.md)
+    - [所有消息类型](/all-message.md)
+    - [LINQ简单入门](/linq.md)
     - [模块化](./modularization.md)
 - [常见问题解答](./faq.md)

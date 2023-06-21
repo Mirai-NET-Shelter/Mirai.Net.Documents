@@ -6,6 +6,8 @@
 
 下面是一些简单的例子：
 
+> 注：如果你无法使用某些方法，请尝试添加using System.Reactive.Linq;命名空间
+
 #### 监听群员禁言事件
 
 ```cs
@@ -41,7 +43,7 @@ bot.EventReceived
     });
 ```
 
-因为`EventReceived`是一个`IObservable<EventBase>`类型的属性，这是基于[Rx.NET](https://github.com/dotnet/reactive)的订阅模式。所以你可以使用LINQ来操作事件，比如（如果你不熟悉LINQ的用法，建议先去了解一下）：
+因为`EventReceived`是一个`IObservable<EventBase>`类型的属性，这是基于[Rx.NET](https://github.com/dotnet/reactive)的订阅模式。所以你可以使用LINQ来操作事件，比如（如果你不熟悉LINQ的用法，建议先去[了解一下](/linq.md)）：
 
 ```cs
 bot.EventReceived
